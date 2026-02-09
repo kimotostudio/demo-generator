@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福岡県の夫婦カウンセリング（Tially） - 本来のあなたへ</title>
+    <meta name="description" content="福岡県の夫婦カウンセリング（Tially）は、心と体を整えるリラクゼーションサロンです。丁寧な施術で日々の疲れをやさしくケアします。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-main: #F5E6E8;
+            --color-sub: #F5F0E8;
+            --color-text: #4A4A4A;
+            --color-accent: #D4A5A5;
+            --color-white: #FFFFFF;
+            --color-light: #FFF9F5;
+            --color-dark: #8B7B6F;
+            --font-serif: 'Noto Serif JP', serif;
+            --font-sans: 'Noto Sans JP', sans-serif;
+            --section-padding: 120px;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            line-height: 1.9;
+            font-size: 16px;
+            background-color: var(--color-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ヘッダー */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 25px 50px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            transition: all 0.5s var(--transition-smooth);
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+            padding: 18px 50px;
+        }
+
+        header .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: var(--color-text);
+            text-decoration: none;
+            white-space: nowrap;
+            max-width: 55vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+            transform: translateY(-1px);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 45px;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: var(--color-text);
+            text-decoration: none;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+            transition: width 0.4s var(--transition-smooth);
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ハンバーガーメニュー */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-toggle span {
+            width: 26px;
+            height: 2px;
+            background: var(--color-text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* ファーストビュー */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/image20.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 0;
+            filter: brightness(1.05);
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0.05) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0.92) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 30px;
+            animation: fadeInUp 1.4s var(--transition-smooth) 0.4s both;
+        }
+
+        .hero-brand {
+            font-family: var(--font-serif);
+            font-size: clamp(30px, 5.2vw, 64px);
+            font-weight: 300;
+            letter-spacing: 0.14em;
+            color: var(--color-text);
+            margin-bottom: 35px;
+            line-height: 1.3;
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-shadow: 0 2px 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-catch {
+            font-size: clamp(17px, 2.2vw, 22px);
+            font-weight: 300;
+            letter-spacing: 0.14em;
+            color: #2f2f2f;
+            margin-bottom: 70px;
+            line-height: 2.1;
+            opacity: 1;
+            text-shadow: 0 2px 14px rgba(255, 255, 255, 0.7);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 2.5s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 1px;
+            height: 65px;
+            background: linear-gradient(180deg, transparent, var(--color-accent));
+            margin: 0 auto 12px;
+        }
+
+        .scroll-indicator p {
+            font-size: 10px;
+            letter-spacing: 0.25em;
+            color: var(--color-text);
+            writing-mode: vertical-rl;
+            font-weight: 300;
+        }
+
+        /* コンセプトセクション */
+        .concept {
+            padding: var(--section-padding) 50px;
+            background: linear-gradient(180deg, var(--color-light) 0%, var(--color-white) 100%);
+        }
+
+        .concept-inner {
+            max-width: 950px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 0.35em;
+            color: var(--color-accent);
+            margin-bottom: 25px;
+            font-weight: 400;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(34px, 4.5vw, 52px);
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            color: var(--color-text);
+            margin-bottom: 55px;
+            line-height: 1.5;
+        }
+
+        .section-text {
+            font-size: clamp(15px, 1.6vw, 18px);
+            line-height: 2.3;
+            letter-spacing: 0.09em;
+            color: var(--color-text);
+            font-weight: 300;
+            opacity: 0.92;
+        }
+
+        /* 施術者プロフィール */
+        .therapist {
+            padding: var(--section-padding) 50px;
+            background: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .therapist::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--color-main) 0%, transparent 70%);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .therapist-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .therapist-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .therapist-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 80px;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s var(--transition-smooth);
+        }
+
+        .therapist-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .therapist-image-wrapper {
+            position: relative;
+        }
+
+        .therapist-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s var(--transition-smooth), box-shadow 0.5s ease;
+        }
+
+        .therapist-image:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .therapist-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--color-main), var(--color-sub));
+            border-radius: 50%;
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .therapist-info {
+            padding: 20px 0;
+        }
+
+        .therapist-name {
+            font-family: var(--font-serif);
+            font-size: clamp(26px, 3vw, 36px);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            color: var(--color-text);
+        }
+
+        .therapist-title {
+            font-size: 15px;
+            letter-spacing: 0.12em;
+            color: var(--color-accent);
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .therapist-description {
+            font-size: 16px;
+            line-height: 2.2;
+            letter-spacing: 0.06em;
+            color: var(--color-text);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .therapist-credentials {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .credential-item {
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            color: var(--color-text);
+            opacity: 0.85;
+            font-weight: 300;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .credential-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        /* サービスセクション */
+        .services {
+            padding: var(--section-padding) 50px;
+            background: linear-gradient(180deg, var(--color-white) 0%, var(--color-light) 100%);
+        }
+
+        .services-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 85px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 45px;
+        }
+
+        .service-card {
+            padding: 55px 45px;
+            background: var(--color-white);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 12px;
+            transition: all 0.5s var(--transition-smooth);
+            opacity: 0;
+            transform: translateY(35px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-main), var(--color-accent));
+            transform: scaleX(0);
+            transition: transform 0.5s var(--transition-smooth);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.09);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-main) 0%, var(--color-sub) 100%);
+            border-radius: 50%;
+            font-size: 32px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.4s var(--transition-smooth);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.08) rotate(5deg);
+        }
+
+        .service-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: 0.09em;
+            margin-bottom: 22px;
+            text-align: center;
+            color: var(--color-text);
+        }
+
+        .service-description {
+            font-size: 14.5px;
+            line-height: 2.1;
+            letter-spacing: 0.06em;
+            color: var(--color-text);
+            text-align: center;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .service-price {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            color: var(--color-accent);
+            text-align: center;
+            margin-top: 28px;
+            letter-spacing: 0.06em;
+            font-weight: 500;
+        }
+
+        /* お客様の声 */
+        .testimonials {
+            padding: var(--section-padding) 50px;
+            background: var(--color-sub);
+        }
+
+        .testimonials-inner {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 85px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 45px;
+        }
+
+        .testimonial-card {
+            background: var(--color-white);
+            padding: 45px 40px;
+            border-radius: 14px;
+            position: relative;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.5s var(--transition-smooth);
+        }
+
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-family: var(--font-serif);
+            font-size: 90px;
+            color: var(--color-main);
+            position: absolute;
+            top: 25px;
+            left: 35px;
+            line-height: 1;
+            opacity: 0.45;
+        }
+
+        .testimonial-text {
+            font-size: 15.5px;
+            line-height: 2.2;
+            letter-spacing: 0.06em;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+            color: var(--color-text);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-author-info {
+            font-size: 13.5px;
+            letter-spacing: 0.06em;
+        }
+
+        .testimonial-name {
+            font-weight: 500;
+            color: var(--color-text);
+            margin-bottom: 6px;
+        }
+
+        .testimonial-meta {
+            font-size: 12px;
+            color: var(--color-dark);
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        /* アクセス・料金 */
+        .access-pricing {
+            padding: var(--section-padding) 50px;
+            background: var(--color-white);
+        }
+
+        .access-pricing-inner {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .access-pricing-header {
+            text-align: center;
+            margin-bottom: 85px;
+        }
+
+        .access-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 70px;
+        }
+
+        .pricing-table {
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 35px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            background: var(--color-white);
+        }
+
+        .pricing-item:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-item:hover {
+            background: var(--color-light);
+            padding-left: 40px;
+        }
+
+        .pricing-name {
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            font-size: 15px;
+        }
+
+        .pricing-value {
+            font-family: var(--font-serif);
+            color: var(--color-accent);
+            font-weight: 500;
+            font-size: 18px;
+            letter-spacing: 0.05em;
+        }
+
+        .access-info p {
+            margin-bottom: 22px;
+            line-height: 2.1;
+            letter-spacing: 0.06em;
+            font-weight: 300;
+            font-size: 15px;
+        }
+
+        .access-label {
+            font-weight: 500;
+            margin-right: 18px;
+            display: inline-block;
+            min-width: 90px;
+            color: var(--color-dark);
+        }
+
+        /* CTAセクション */
+        .cta {
+            padding: 110px 50px;
+            background: linear-gradient(135deg, var(--color-main) 0%, var(--color-sub) 50%, var(--color-main) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-family: var(--font-serif);
+            font-size: clamp(30px, 3.5vw, 44px);
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            margin-bottom: 25px;
+            color: var(--color-text);
+            line-height: 1.7;
+        }
+
+        .cta-text {
+            font-size: 16px;
+            letter-spacing: 0.1em;
+            margin-bottom: 55px;
+            color: var(--color-text);
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 24px 70px;
+            background: var(--color-white);
+            color: var(--color-text);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            transition: all 0.5s var(--transition-smooth);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--color-light);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.18);
+        }
+
+        /* フッター */
+        footer {
+            padding: 70px 50px 45px;
+            background: var(--color-dark);
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            letter-spacing: 0.1em;
+            margin-bottom: 30px;
+            color: var(--color-white);
+            font-weight: 400;
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+            margin-bottom: 35px;
+        }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .footer-social a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.7);
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            color: rgba(255, 255, 255, 0.65);
+            font-weight: 300;
+        }
+
+        /* アニメーション */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(-50%, 0);
+            }
+            50% {
+                transform: translate(-50%, -18px);
+            }
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 1024px) {
+            .therapist-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .therapist-image-wrapper {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 85px;
+            }
+
+            header {
+                padding: 18px 25px;
+            }
+
+            header.scrolled {
+                padding: 14px 25px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero-bg {
+                background-attachment: scroll;
+            }
+
+            .scroll-indicator {
+                bottom: 40px;
+            }
+
+            .concept,
+            .therapist,
+            .services,
+            .testimonials,
+            .access-pricing,
+            .cta {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .access-pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 55px;
+            }
+
+            .service-card {
+                padding: 45px 35px;
+            }
+
+            .testimonial-card {
+                padding: 40px 30px;
+            }
+        }
+
+        /* 印刷用 */
+        @media print {
+            header {
+                position: relative;
+                background: var(--color-white);
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header id="header">
+        <div class="container">
+            <a href="#" class="logo">福岡県の夫婦カウンセリング（Tially）</a>
+            <nav>
+                <ul>
+                    <li><a href="#concept">コンセプト</a></li>
+                    <li><a href="#therapist">施術者紹介</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ファーストビュー -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-brand">福岡県の夫婦カウンセリング（Tially）</h1>
+            <p class="hero-catch">日々の疲れに寄り添う<br>心と体をゆるめる、リラクゼーションの時間</p>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+            <p>SCROLL</p>
+        </div>
+    </section>
+
+    <!-- コンセプト -->
+    <section class="concept" id="concept">
+        <div class="concept-inner fade-in">
+            <p class="section-label">Our Philosophy</p>
+            <h2 class="section-title">本来のあなたへ</h2>
+            <p class="section-text">日々の忙しさでこわばった心と体を、やさしく整える場所。<br>
+                丁寧なカウンセリングと心地よい施術で、<br>
+                疲れやコリをほどき、軽やかなコンディションへ。<br>
+                ここは、リセットとリフレッシュのためのサロンです。</p>
+        </div>
+    </section>
+
+    <!-- 施術者プロフィール -->
+    <section class="therapist" id="therapist">
+        <div class="therapist-inner">
+            <div class="therapist-header fade-in">
+                <p class="section-label">Therapist</p>
+                <h2 class="section-title">施術者紹介</h2>
+            </div>
+            <div class="therapist-content">
+                <div class="therapist-image-wrapper">
+                    <img src="images/image26.jpg" alt="施術者" class="therapist-image">
+                </div>
+                <div class="therapist-info">
+                    <h3 class="therapist-name">施術者名(仮)</h3>
+                    <p class="therapist-title">認定ボディセラピスト / リラクゼーション施術者</p>
+                    <div class="therapist-description">
+                        <p>15年以上にわたり、ボディケア・オイルトリートメントに携わってきました。お悩みや体調に合わせたカウンセリングを大切にし、一人ひとりに寄り添った丁寧な施術を心がけています。</p>
+                        <p style="margin-top: 20px;">心身がすっきり軽くなる時間をご提供できることを、心より楽しみにしております。</p>
+                    </div>
+                    <div class="therapist-credentials">
+                        <div class="credential-item">ボディケア上級コース修了</div>
+                        <div class="credential-item">リンパトリートメント講習修了</div>
+                        <div class="credential-item">ヘッドケア技術講習修了</div>
+                        <div class="credential-item">アロマセラピスト認定資格</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- サービス -->
+    <section class="services" id="services">
+        <div class="services-inner">
+            <div class="services-header fade-in">
+                <p class="section-label">Services</p>
+                <h2 class="section-title">メニュー</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3 class="service-title">アロマボディトリートメント</h3>
+                    <p class="service-description">お好みの香りとオイルで全身をゆるめ、疲れやこわばりをやさしくケア。深いリラクゼーションへ導きます。</p>
+                    <p class="service-price">60分 / ¥12,000</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌸</div>
+                    <h3 class="service-title">リンパトリートメント</h3>
+                    <p class="service-description">首肩・背中・脚のむくみや疲れに。丁寧に流して軽やかな体へ整えます。</p>
+                    <p class="service-price">90分 / ¥18,000</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💫</div>
+                    <h3 class="service-title">ヘッド&ネックケア</h3>
+                    <p class="service-description">頭・首まわりのこりや眼精疲労に。短時間でもすっきり感を実感できます。</p>
+                    <p class="service-price">45分 / ¥9,000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お客様の声 -->
+    <section class="testimonials">
+        <div class="testimonials-inner">
+            <div class="testimonials-header fade-in">
+                <p class="section-label">Testimonials</p>
+                <h2 class="section-title">お客様の声</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">長年悩んでいた肩こりが楽になり、施術後は体が軽く感じます。睡眠の質も上がって、翌朝の目覚めが違いました。</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-info">
+                            <p class="testimonial-name">Y.K様</p>
+                            <p class="testimonial-meta">40代・会社員</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">初めてのサロンでしたが、丁寧な説明で安心して受けられました。施術中はリラックスしてうとうとしてしまうほど心地よかったです。</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-info">
+                            <p class="testimonial-name">M.T様</p>
+                            <p class="testimonial-meta">30代・主婦</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">サロンの雰囲気が落ち着いていて、通うたびにリフレッシュできます。定期的に通うことで体調管理がしやすくなりました。</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-info">
+                            <p class="testimonial-name">R.S様</p>
+                            <p class="testimonial-meta">50代・自営業</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">ヘッドケアで頭がすっきりして、目の疲れも和らぎました。短時間でも気分転換になって助かります。</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-info">
+                            <p class="testimonial-name">H.N様</p>
+                            <p class="testimonial-meta">20代・学生</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセス・料金 -->
+    <section class="access-pricing" id="access">
+        <div class="access-pricing-inner">
+            <div class="access-pricing-header fade-in">
+                <p class="section-label">Access & Pricing</p>
+                <h2 class="section-title">アクセス・料金</h2>
+            </div>
+            <div class="access-pricing-grid">
+                <div class="pricing fade-in">
+                    <h3 class="section-title" style="font-size: 26px; margin-bottom: 35px;">料金表</h3>
+                    <div class="pricing-table">
+                        <div class="pricing-item">
+                            <span class="pricing-name">アロマボディトリートメント（60分）</span>
+                            <span class="pricing-value">¥12,000</span>
+                        </div>
+                        <div class="pricing-item">
+                            <span class="pricing-name">リンパトリートメント（90分）</span>
+                            <span class="pricing-value">¥18,000</span>
+                        </div>
+                        <div class="pricing-item">
+                            <span class="pricing-name">ヘッド&ネックケア（45分）</span>
+                            <span class="pricing-value">¥9,000</span>
+                        </div>
+                        <div class="pricing-item">
+                            <span class="pricing-name">初回限定トライアル</span>
+                            <span class="pricing-value">¥8,000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="access fade-in">
+                    <h3 class="section-title" style="font-size: 26px; margin-bottom: 35px;">アクセス</h3>
+                    <div class="access-info">
+                        <p><span class="access-label">営業時間</span>10:00 - 19:00（最終受付 18:00）</p>
+                        <p><span class="access-label">定休日</span>月曜日・第3日曜日</p>
+                        <p><span class="access-label">住所</span>〒xxx-xxxx 東京都xx区xx x-x-x</p>
+                        <p><span class="access-label">アクセス</span>○○駅より徒歩5分</p>
+                        <p><span class="access-label">電話</span>03-xxxx-xxxx</p>
+                        <p style="margin-top: 35px; font-size: 14px; line-height: 2.1; opacity: 0.85;">
+                            ※完全予約制となっております<br>
+                            ※駐車場のご用意はございません<br>
+                            ※お支払いは現金・クレジットカード・電子マネーに対応
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <div class="cta-inner">
+            <h2 class="cta-title">あなたも本来の輝きを<br>取り戻しませんか</h2>
+            <p class="cta-text">初回限定のトライアルプランをご用意しております</p>
+            <a href="https://www.tially.jp/fukuoka/" class="cta-button"><span>ご予約・お問い合わせ</span></a>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-brand">福岡県の夫婦カウンセリング（Tially）</div>
+        <div class="footer-social">
+            <a href="#" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+            </a>
+            <a href="#" aria-label="LINE">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"></path>
+                </svg>
+            </a>
+        </div>
+        <p class="footer-copyright">&copy; 2026 福岡県の夫婦カウンセリング（Tially）. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // ヘッダースクロール効果（headerが無い場合に備えてガード）
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (header) {
+                if (currentScroll > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer でフェードイン
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // fade-in クラスの要素を監視
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(45px)';
+            el.style.transition = 'opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+
+        // サービスカード、お客様の声カード、施術者コンテンツを監視
+        document.querySelectorAll('.service-card, .testimonial-card, .therapist-content').forEach((el, index) => {
+            el.style.transitionDelay = `${index * 0.12}s`;
+            observer.observe(el);
+        });
+
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 画像の遅延読み込み
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        } else {
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>
