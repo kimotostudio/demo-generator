@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo site - 個人サロン</title>
+    <meta name="description" content="アットホームな個人サロンdemo site。一人ひとりに寄り添った丁寧な施術をご提供します。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --warm-pink: #E8C4C4;
+            --soft-peach: #F5E1D3;
+            --cream: #FBF8F3;
+            --text: #5A4A42;
+            --text-light: #8B7B73;
+            --white: #FFFFFF;
+            --accent: #D4A5A5;
+            --font-serif: 'Noto Serif JP', serif;
+            --font-sans: 'Noto Sans JP', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text);
+            line-height: 1.9;
+            background: var(--cream);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Variant E Hero: Warm, inviting with circular frame */
+        .hero-e {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 60px;
+            overflow: hidden;
+        }
+
+        .hero-e::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--soft-peach) 0%, var(--cream) 50%, var(--warm-pink) 100%);
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        .hero-e-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-e-image-wrapper {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid var(--white);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .hero-e-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-e-greeting {
+            font-size: 15px;
+            letter-spacing: 0.15em;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .hero-e-title {
+            font-family: var(--font-serif);
+            font-size: 52px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--text);
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .hero-e-description {
+            font-size: 16px;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            line-height: 2;
+            margin-bottom: 45px;
+        }
+
+        .hero-e-cta {
+            display: inline-block;
+            padding: 18px 50px;
+            background: var(--white);
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .hero-e-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 50px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 19px;
+            letter-spacing: 0.1em;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        nav a {
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            color: var(--text);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        /* Sections */
+        section {
+            padding: 90px 40px;
+        }
+
+        .section-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 0.25em;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            margin-bottom: 40px;
+            color: var(--text);
+        }
+
+        .section-text {
+            font-size: 15px;
+            line-height: 2.1;
+            color: var(--text-light);
+        }
+
+        /* About */
+        .about {
+            background: var(--white);
+        }
+
+        /* Therapist */
+        .therapist-content {
+            margin-top: 50px;
+            text-align: left;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+        }
+
+        .therapist-name {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .therapist-title {
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .therapist-description {
+            font-size: 15px;
+            line-height: 2.1;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .therapist-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .credential-item {
+            padding: 10px 20px;
+            background: var(--soft-peach);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            color: var(--text);
+            border-radius: 20px;
+        }
+
+        /* Services */
+        .services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            padding: 40px 30px;
+            background: var(--cream);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 22px;
+        }
+
+        .service-title {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            letter-spacing: 0.08em;
+            margin-bottom: 18px;
+        }
+
+        .service-description {
+            font-size: 14px;
+            line-height: 2;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .service-price {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+        }
+
+        /* Message */
+        .message-section {
+            background: linear-gradient(135deg, var(--warm-pink) 0%, var(--soft-peach) 100%);
+            padding: 80px 40px;
+        }
+
+        .message-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+        }
+
+        .message-title {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            letter-spacing: 0.08em;
+            margin-bottom: 25px;
+            text-align: center;
+            color: var(--text);
+        }
+
+        .message-text {
+            font-size: 15px;
+            line-height: 2.2;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            padding: 35px 28px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            line-height: 2;
+            color: var(--text-light);
+            margin-bottom: 22px;
+        }
+
+        .testimonial-author {
+            font-size: 12px;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+        }
+
+        /* Access */
+        .access {
+            background: var(--white);
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .access-info dt {
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .access-info dd {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.9;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--cream);
+            text-align: center;
+            padding: 90px 40px;
+        }
+
+        .cta-title {
+            font-family: var(--font-serif);
+            font-size: 34px;
+            letter-spacing: 0.08em;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 15px;
+            letter-spacing: 0.1em;
+            color: var(--text-light);
+            margin-bottom: 45px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 165, 165, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: var(--white);
+            color: var(--text);
+            border: 2px solid var(--accent);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: rgba(255,255,255,0.7);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            letter-spacing: 0.12em;
+            color: var(--white);
+            margin-bottom: 25px;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            letter-spacing: 0.08em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-e {
+                padding: 100px 30px 50px;
+            }
+
+            .hero-e-image-wrapper {
+                width: 220px;
+                height: 220px;
+            }
+
+            .hero-e-title {
+                font-size: 38px;
+            }
+
+            header {
+                padding: 18px 30px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            section {
+                padding: 70px 30px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .therapist-content {
+                padding: 40px 25px;
+            }
+
+            .message-box {
+                padding: 40px 25px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">demo site</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#therapist">スタッフ</a></li>
+                    <li><a href="#services">メニュー</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero (Variant E) -->
+    <section class="hero-e">
+        <div class="hero-e-content">
+            <div class="hero-e-image-wrapper">
+                <img src="images/image06.jpg" alt="オーナーセラピスト">
+            </div>
+            <p class="hero-e-greeting">はじめまして</p>
+            <h1 class="hero-e-title">demo site</h1>
+            <p class="hero-e-description">
+                お一人お一人に寄り添った、丁寧な施術を心がけています。<br>
+                小さな個人サロンだからこそできる、アットホームな空間で<br>
+                ゆっくりとお寛ぎください。
+            </p>
+            <a href="#contact" class="hero-e-cta">ご詳細・詳しくはこちら</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="section-inner fade-in">
+            <p class="section-label">About</p>
+            <h2 class="section-title">当サロンについて</h2>
+            <p class="section-text">
+                完全詳細制の小さな個人サロンです。<br>
+                お客様お一人お一人とじっくり向き合い、その日の体調やお悩みに合わせて<br>
+                最適な施術をご提案させていただきます。<br><br>
+                大手サロンのような派手さはありませんが、<br>
+                アットホームで落ち着いた空間で、リラックスしてお過ごしいただけます。
+            </p>
+        </div>
+    </section>
+
+    <!-- Therapist -->
+    <section id="therapist">
+        <div class="section-inner">
+            <div class="fade-in">
+                <p class="section-label">スタッフ</p>
+                <h2 class="section-title">オーナーセラピスト</h2>
+            </div>
+            <div class="therapist-content">
+                <h3 class="therapist-name">{{THERAPIST_NAME}}</h3>
+                <p class="therapist-title">オーナー・セラピスト</p>
+                <div class="therapist-description">
+                    <p>はじめまして。サロンオーナーの〇〇と申します。</p>
+                    <p style="margin-top: 15px;">大手サロンで10年以上の経験を積んだ後、「もっとお一人お一人に向き合った施術がしたい」という想いから、この小さなサロンをオープンしました。</p>
+                    <p style="margin-top: 15px;">お客様の身体の声に耳を傾けながら、その日その時に必要なケアをご提供します。初めての方も、どうぞお気軽にいらしてください。</p>
+                </div>
+                <div class="therapist-credentials">
+                    <span class="credential-item">認定セラピスト</span>
+                    <span class="credential-item">アロマセラピスト</span>
+                    <span class="credential-item">リフレクソロジスト</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="section-inner">
+            <div class="fade-in">
+                <p class="section-label">Services</p>
+                <h2 class="section-title">メニュー</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌸</div>
+                    <h3 class="service-title">リラクゼーション</h3>
+                    <p class="service-description">
+                        全身をゆっくりとほぐす、心地よいリラクゼーションコース。日頃の疲れを癒したい方におすすめです。
+                    </p>
+                    <p class="service-price">60分 / ¥6,500</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3 class="service-title">アロマトリートメント</h3>
+                    <p class="service-description">
+                        天然のアロマオイルを使用した、心身ともに癒されるトリートメント。香りの効果で深いリラックス。
+                    </p>
+                    <p class="service-price">75分 / ¥8,500</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💫</div>
+                    <h3 class="service-title">フェイシャル</h3>
+                    <p class="service-description">
+                        お肌の状態に合わせた丁寧なフェイシャルケア。お顔のむくみやくすみが気になる方に。
+                    </p>
+                    <p class="service-price">60分 / ¥7,500</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message -->
+    <section class="message-section">
+        <div class="message-box fade-in">
+            <h3 class="message-title">こんな方におすすめです</h3>
+            <div class="message-text">
+                <p>✓ 大手サロンの流れ作業のような施術に疲れた方<br>
+                ✓ 個室でゆっくりとリラックスしたい方<br>
+                ✓ 体調や悩みをしっかり聞いてもらいたい方<br>
+                ✓ 通いやすい価格で質の良い施術を受けたい方<br>
+                ✓ 初めてのサロンで緊張する方</p>
+                <p style="margin-top: 20px;">小さなサロンだからこそできる、心のこもったおもてなしでお迎えします。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+        <div class="section-inner">
+            <div class="fade-in">
+                <p class="section-label">Voice</p>
+                <h2 class="section-title">お客様の声</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">「個人サロンならではの、アットホームな雰囲気が気に入っています。いつも丁寧に話を聞いてくださり、安心して通えます。」</p>
+                    <p class="testimonial-author">40代女性 / 主婦</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">「大手サロンよりもリーズナブルなのに、技術はとても確か。毎回、身体が軽くなるのを実感しています。」</p>
+                    <p class="testimonial-author">30代女性 / 会社員</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">「初めてで緊張していましたが、優しく対応していただき、すぐにリラックスできました。これからも通いたいです。」</p>
+                    <p class="testimonial-author">20代女性 / 学生</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access -->
+    <section class="access" id="access">
+        <div class="section-inner">
+            <div class="fade-in">
+                <p class="section-label">Access</p>
+                <h2 class="section-title">アクセス・営業時間</h2>
+            </div>
+            <div class="access-grid">
+                <dl class="access-info">
+                    <dt>住所</dt>
+                    <dd>東京都杉並区〇〇 1-2-3<br>〇〇マンション 101号室</dd>
+                    <dt>アクセス</dt>
+                    <dd>JR中央線「荻窪駅」徒歩7分<br>東京メトロ丸ノ内線「荻窪駅」徒歩6分</dd>
+                </dl>
+                <dl class="access-info">
+                    <dt>営業時間</dt>
+                    <dd>10:00 - 19:00（最終受付 17:30）</dd>
+                    <dt>定休日</dt>
+                    <dd>日曜日・祝日（完全詳細制）</dd>
+                    <dt>詳しくはこちら</dt>
+                    <dd>TEL: 090-0000-0000<br>Email: info@example.com<br>LINE: @example</dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <h2 class="cta-title">ご詳細・詳しくはこちら</h2>
+        <p class="cta-text">お電話、メール、LINEにてお気軽に詳しくはこちらください</p>
+        <div class="cta-buttons">
+            <a href="tel:090-0000-0000" class="cta-button">お電話で詳細</a>
+            <a href="#" class="cta-button secondary">LINEで詳細</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">demo site</div>
+        <p class="footer-text">
+            ©  demo site. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Fade-in animation
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

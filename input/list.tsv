@@ -1,0 +1,11 @@
+id	brand_name	reference_url	template	image	therapist_image
+demo01	Demo Site	https://example.com	A	image01.jpg	image26.jpg
+demo02	Demo Site	https://example.com	A	image09.jpg	image28.jpg
+demo03	Demo Site	https://example.com	A	image17.jpg	image30.jpg
+demo04	Demo Site	https://example.com	A	image05.jpg	image26.jpg
+demo05	Demo Site	https://example.com	A	image21.jpg	image28.jpg
+demo06	Demo Site	https://example.com	B	image03.jpg	image28.jpg
+demo07	Demo Site	https://example.com	C	image11.jpg	image30.jpg
+demo08	Demo Site	https://example.com	D	image19.jpg	image26.jpg
+demo09	Demo Site	https://example.com	E	image07.jpg	image28.jpg
+demo10	Demo Site	https://example.com	F	image14.jpg	image30.jpg

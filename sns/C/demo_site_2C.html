@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo site - ナチュラルケアサロン</title>
+    <meta name="description" content="自然の力で心身を癒す、demo siteのナチュラルケアサロン">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-primary: #7A9B76;
+            --green-light: #B8C9B5;
+            --beige: #F5F2ED;
+            --text: #3A3A3A;
+            --text-light: #6B6B6B;
+            --white: #FFFFFF;
+            --font-serif: 'Noto Serif JP', serif;
+            --font-sans: 'Noto Sans JP', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text);
+            line-height: 1.9;
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Variant C Hero: Centered text with soft overlay */
+        .hero-c {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-c-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/image02.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-c-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(245,242,237,0.2) 0%, rgba(122,155,118,0.35) 100%);
+        }
+
+        .hero-c-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 40px;
+        }
+
+        .hero-c-subtitle {
+            font-size: 14px;
+            letter-spacing: 0.3em;
+            color: var(--text);
+            margin-bottom: 20px;
+            font-weight: 300;
+            text-shadow: 0 2px 15px rgba(255,255,255,0.9);
+        }
+
+        .hero-c-title {
+            font-family: var(--font-serif);
+            font-size: 72px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            color: var(--text);
+            margin-bottom: 35px;
+            text-shadow: 0 2px 30px rgba(255,255,255,0.95);
+        }
+
+        .hero-c-description {
+            font-size: 16px;
+            letter-spacing: 0.15em;
+            color: var(--text-light);
+            line-height: 2.2;
+            margin-bottom: 55px;
+            text-shadow: 0 1px 20px rgba(255,255,255,0.8);
+        }
+
+        .hero-c-cta {
+            display: inline-block;
+            padding: 20px 60px;
+            background: rgba(255,255,255,0.95);
+            color: var(--green-primary);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 0.25em;
+            font-weight: 500;
+            border: 2px solid var(--green-primary);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .hero-c-cta:hover {
+            background: var(--green-primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(122,155,118,0.35);
+        }
+
+        .hero-c-scroll {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--text);
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 25px 60px;
+            background: transparent;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255,255,255,0.98);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+            padding: 18px 60px;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            letter-spacing: 0.12em;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            color: var(--text);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        /* Sections */
+        section {
+            padding: 110px 60px;
+        }
+
+        .section-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            color: var(--green-primary);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 40px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            margin-bottom: 45px;
+            color: var(--text);
+        }
+
+        .section-text {
+            font-size: 15px;
+            line-height: 2.1;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Therapist */
+        .therapist {
+            background: var(--beige);
+        }
+
+        .therapist-content {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 70px;
+            margin-top: 60px;
+            text-align: left;
+        }
+
+        .therapist-image {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .therapist-name {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .therapist-title {
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            color: var(--green-primary);
+            margin-bottom: 35px;
+        }
+
+        .therapist-description {
+            font-size: 15px;
+            line-height: 2.1;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .therapist-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .credential-item {
+            padding: 10px 20px;
+            background: var(--white);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            color: var(--text);
+            border: 1px solid var(--green-light);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 45px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            padding: 50px 40px;
+            background: var(--beige);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 42px;
+            margin-bottom: 28px;
+        }
+
+        .service-title {
+            font-family: var(--font-serif);
+            font-size: 21px;
+            letter-spacing: 0.1em;
+            margin-bottom: 22px;
+        }
+
+        .service-description {
+            font-size: 14px;
+            line-height: 2;
+            color: var(--text-light);
+            margin-bottom: 28px;
+        }
+
+        .service-price {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--green-primary);
+            letter-spacing: 0.1em;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            padding: 45px 35px;
+            background: var(--beige);
+            text-align: left;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            line-height: 2;
+            color: var(--text-light);
+            margin-bottom: 28px;
+        }
+
+        .testimonial-author {
+            font-size: 12px;
+            color: var(--green-primary);
+            letter-spacing: 0.1em;
+        }
+
+        /* Access */
+        .access {
+            background: var(--beige);
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            margin-top: 60px;
+            text-align: left;
+        }
+
+        .access-info dt {
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            color: var(--green-primary);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .access-info dd {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 28px;
+            line-height: 1.9;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--green-primary);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 60px;
+        }
+
+        .cta-title {
+            font-family: var(--font-serif);
+            font-size: 38px;
+            letter-spacing: 0.1em;
+            margin-bottom: 22px;
+        }
+
+        .cta-text {
+            font-size: 15px;
+            letter-spacing: 0.15em;
+            opacity: 0.95;
+            margin-bottom: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 60px;
+            background: var(--white);
+            color: var(--green-primary);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 0.25em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.25);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: rgba(255,255,255,0.7);
+            padding: 65px;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            letter-spacing: 0.15em;
+            color: var(--white);
+            margin-bottom: 28px;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            letter-spacing: 0.1em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-c-title {
+                font-size: 44px;
+            }
+
+            .hero-c-subtitle {
+                font-size: 12px;
+            }
+
+            .hero-c-description {
+                font-size: 14px;
+            }
+
+            header {
+                padding: 18px 30px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            section {
+                padding: 70px 30px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .therapist-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .therapist-image {
+                height: 340px;
+            }
+
+            .services-grid,
+            .testimonial-grid,
+            .access-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta-section {
+                padding: 70px 30px;
+            }
+
+            .cta-title {
+                font-size: 28px;
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="#" class="logo">demo site</a>
+            <nav>
+                <ul>
+                    <li><a href="#concept">About</a></li>
+                    <li><a href="#therapist">スタッフ</a></li>
+                    <li><a href="#services">メニュー</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero (Variant C) -->
+    <section class="hero-c">
+        <div class="hero-c-bg"></div>
+        <div class="hero-c-content">
+            <p class="hero-c-subtitle">NATURAL CARE SALON</p>
+            <h1 class="hero-c-title">demo site</h1>
+            <p class="hero-c-description">自然の力で心身を整える<br>本来のあなたに還る場所</p>
+            <a href="#contact" class="hero-c-cta">ご詳細・詳しくはこちら</a>
+        </div>
+        <div class="hero-c-scroll">SCROLL</div>
+    </section>
+
+    <!-- Concept -->
+    <section id="concept">
+        <div class="section-inner fade-in">
+            <p class="section-label">About</p>
+            <h2 class="section-title">自然と調和する時間</h2>
+            <p class="section-text">
+                植物の力、大地のエネルギー、そして人の手の温もり。<br>
+                自然の恵みを活かした施術で、あなたの心と身体を本来のバランスへと導きます。<br>
+                都会の喧騒を離れ、静かに自分と向き合う時間をお過ごしください。
+            </p>
+        </div>
+    </section>
+
+    <!-- Therapist -->
+    <section class="therapist" id="therapist">
+        <div class="section-inner">
+            <div class="fade-in">
+                <p class="section-label">スタッフ</p>
+                <h2 class="section-title">スタッフ紹介</h2>
+            </div>
+            <div class="therapist-content">
+                <img src="images/image03.jpg" alt="セラピスト" class="therapist-image">
+                <div>
+                    <h3 class="therapist-name">{{THERAPIST_NAME}}</h3>
+                    <p class="therapist-title">ナチュラルセラピスト</p>
+                    <div class="therapist-description">
+                        <p>自然療法とエネルギーワークを組み合わせた独自のアプローチで、これまで500名以上の方をサポートしてきました。</p>
+                        <p style="margin-top: 18px;">化学的なものに頼らず、自然の力と身体の持つ治癒力を最大限に引き出すことを大切にしています。</p>
+                    </div>
+                    <div class="therapist-credentials">
+                        <span class="credential-item">自然療法士</span>
+                        <span class="credential-item">ハーバリスト</span>
+                        <span class="credential-item">レイキヒーラー</span>
+                        <span class="credential-item">アロマセラピスト</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="section-inner">
+            <div class="fade-in">
+                <p class="section-label">Services</p>
+                <h2 class="section-title">メニュー</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌱</div>
+                    <h3 class="service-title">ハーバルトリートメント</h3>
+                    <p class="service-description">
+                        厳選したオーガニックハーブを使用した全身トリートメント。植物のエネルギーが身体の深部まで浸透します。
+                    </p>
+                    <p class="service-price">90分 / ¥13,000</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🍃</div>
+                    <h3 class="service-title">エネルギーヒーリング</h3>
+                    <p class="service-description">
+                        チャクラの調整とオーラクレンジングで、エネルギーの流れを整えます。心と身体の深いリラクゼーション。
+                    </p>
+                    <p class="service-price">75分 / ¥10,000</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌿</div>
+                    <h3 class="service-title">アロマセラピー</h3>
+                    <p class="service-description">
+                        100%天然精油を使用したアロマトリートメント。嗅覚から脳へ働きかけ、自律神経を整えます。
+                    </p>
+                    <p class="service-price">60分 / ¥8,500</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+        <div class="section-inner">
+            <div class="fade-in">
+                <p class="section-label">Voice</p>
+                <h2 class="section-title">お客様の声</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">「自然な香りに包まれながらの施術は、まるで森の中にいるよう。薬に頼らずに体調が整ってきて、自然の力を実感しています。」</p>
+                    <p class="testimonial-author">40代女性 / 会社員</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">「化学的なものが苦手で探していたところ、こちらに出会いました。100%天然素材というこだわりが素晴らしく、安心して通えます。」</p>
+                    <p class="testimonial-author">30代女性 / ヨガインストラクター</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">「エネルギーヒーリングを受けた後、長年の不眠が改善されました。身体だけでなく、心の深い部分が癒された気がします。」</p>
+                    <p class="testimonial-author">50代女性 / 教師</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access -->
+    <section class="access" id="access">
+        <div class="section-inner">
+            <div class="fade-in">
+                <p class="section-label">Access</p>
+                <h2 class="section-title">アクセス・営業時間</h2>
+            </div>
+            <div class="access-grid">
+                <dl class="access-info">
+                    <dt>住所</dt>
+                    <dd>東京都世田谷区〇〇 1-2-3<br>〇〇マンション 201号室</dd>
+                    <dt>アクセス</dt>
+                    <dd>東急田園都市線「三軒茶屋駅」徒歩8分<br>世田谷線「三軒茶屋駅」徒歩6分</dd>
+                </dl>
+                <dl class="access-info">
+                    <dt>営業時間</dt>
+                    <dd>10:00 - 19:00（最終受付 17:30）</dd>
+                    <dt>定休日</dt>
+                    <dd>日曜日・祝日（完全詳細制）</dd>
+                    <dt>詳しくはこちら</dt>
+                    <dd>TEL: 03-0000-0000<br>Email: info@example.com</dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <h2 class="cta-title">ご詳細・詳しくはこちら</h2>
+        <p class="cta-text">お電話またはメールにてお気軽に詳しくはこちらください</p>
+        <a href="tel:03-0000-0000" class="cta-button">03-0000-0000</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">demo site</div>
+        <p class="footer-text">
+            ©  demo site. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in animation
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
