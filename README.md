@@ -1,176 +1,197 @@
 # Demo Generator
 
-スピリチュアル・ヒーリングサロン向けLP自動生成ツール
+Template-based generation of personalized demo landing pages and outreach assets for Japanese small-business prospects.
 
-## 概要
+## Overview
 
-営業ログ（Excel/CSV）から自動でプロフェッショナルなHTMLランディングページを一括生成します。
-画像は店舗の雰囲気に合わせて自動で割り当てられます。
+Demo Generator turns approved lead or worklog data into lightweight, shareable HTML demo pages. In the broader workflow, `lead-finder` identifies promising businesses, this repository generates a tailored demo page or preview asset for each target, and the outreach layer uses those assets during contact or follow-up. The current implementation is practical and operational: it reads TSV or Excel-based lead lists, applies existing HTML templates, assigns images, and writes static output files for review.
 
-## 特徴
+## Why This Project Exists
 
-✨ **自動生成**: 営業リストから一括でLP生成
-🎨 **画像自動割り当て**: 店舗名から雰囲気を推測して最適な画像を選択
-📊 **Excel対応**: .xlsx/.xls形式の営業ログを直接読み込み
-🎯 **プロ品質**: 月額1万円で販売できるクオリティのデザイン
-📱 **完全レスポンシブ**: モバイルファーストデザイン
+For local-business outreach, a generic pitch is weak. A fast, concrete demo page gives the prospect something specific to react to. This repository reduces the manual work of building those first-pass assets one by one and keeps the process repeatable across batches.
 
-## 使い方
+## Core Features
 
-### 方法1: 営業ログから自動生成（推奨）
+- Generate static HTML demo pages from operational Excel worklogs or a small TSV sample list
+- Maintain multiple reusable template variants (`A` through `F`)
+- Auto-assign page images from existing pools using simple atmosphere heuristics
+- Support deterministic batch generation with `--start-id`, `--template`, `--output-template`, and `--excel`
+- Write generation logs to CSV for batch review
+- Produce optional SNS/demo preview sets from the same templates and images
+
+## Workflow
+
+1. Start with approved leads from `lead-finder` or an internal worklog.
+2. Prepare input data in `input/` as either an Excel file for the operational path or `input/list.tsv` for the simple sample path.
+3. Run the generator against a selected template.
+4. Review the generated HTML and `output/generation_log.csv`.
+5. Use the page or asset in the downstream outreach workflow.
+
+Pipeline context:
+
+`lead-finder -> demo-generator -> outreach automation`
+
+## Recommended Usage
+
+### 1. Main operational path: `auto_generate.py`
+
+Use this when generating pages from Excel-based worklogs.
 
 ```bash
-# 営業ログ(Excel)をinput/フォルダに配置
-# ファイル名に「営業」を含める必要があります
-
+pip install openpyxl
 python auto_generate.py
 ```
 
-**営業ログのフォーマット:**
-- 必須列: `店名` または `ブランド名`
-- 任意列: `url`, `id`
-- 店名が入っていれば自動で検出します
+Behavior:
 
-**自動機能:**
-- 画像の雰囲気自動判定
-  - `モダン/modern/スタジオ` → モダンな画像（image17-25）
-  - `ナチュラル/natural/森/緑` → ナチュラルな画像（image09-16）
-  - その他 → エレガントな画像（image01-08）
-- 施術者画像の自動割り当て（image26-33）
-- IDの自動生成（店名のハッシュ値から生成）
-- 生成ログの出力（output/generation_log.csv）
+- scans `input/` for the first Excel file whose name includes `営業`
+- reads the active sheet
+- normalizes brand name, URL, and ID fields
+- writes HTML under `output/<TEMPLATE>/`
+- writes `output/generation_log.csv`
 
-### 方法2: TSVファイルから生成
+Useful examples:
 
 ```bash
-# input/list.tsv を編集
+python auto_generate.py --excel "input/営業ログ(東京).xlsx" --template A --output-template A
+python auto_generate.py --start-id 8000 --template B --output-template B
+```
+
+Operational note:
+
+- `auto_generate.py` expects page images to already exist under `output/<template>/images/`
+
+### 2. Simple sample path: `generate.py`
+
+Use this for a quick, repo-local preview based on `input/list.tsv`.
+
+```bash
 python generate.py
 ```
 
-**list.tsvのフォーマット:**
+This writes files like `output/demo01A_index.html` and references images from `input/images/`.
+
+### 3. Optional preview asset path: `scripts/create_sns_site.py`
+
+Use this to generate preview/demo variants into `sns/`.
+
+```bash
+python scripts/create_sns_site.py
+```
+
+## Tech Stack
+
+- Python
+- Standard library: `csv`, `os`, `argparse`, `datetime`, `random`
+- `openpyxl` for Excel input
+- Static HTML/CSS templates in `templates/`
+- Local image assets in `input/images/` and `output/<template>/images/`
+
+## Project Structure
+
+```text
+demo-generator/
+|-- auto_generate.py        # Main operational generator
+|-- generate.py             # Simple TSV-based generator
+|-- templates/              # Source HTML templates (A-F)
+|-- input/                  # Sample input, source images, operational worklogs
+|-- output/                 # Generated HTML and logs
+|-- scripts/                # Helper scripts and preview generation
+|-- sns/                    # Generated preview/demo pages
+|-- README.md
+|-- AGENTS.md
+`-- .gitignore
+```
+
+Notes:
+
+- `auto_generate.py` is the recommended public starting point.
+- `generate.py` is the simpler sample path.
+- `scripts/generate_by_id_range.py` is a narrow helper, not the main interface.
+- `extract_and_run.py` and some files in `scripts/` are currently empty placeholders.
+
+## Setup
+
+Requirements in the current checkout are minimal:
+
+- Python 3
+- `openpyxl` for the Excel-based workflow
+
+Install:
+
+```bash
+pip install openpyxl
+```
+
+The repository does not currently include a pinned `requirements.txt` or `pyproject.toml`.
+
+## Usage
+
+### Excel-based batch generation
+
+```bash
+python auto_generate.py
+python auto_generate.py --excel "input/営業ログ(東京).xlsx"
+python auto_generate.py --start-id 8000 --template A --output-template A
+```
+
+### TSV-based sample generation
+
+```bash
+python generate.py
+```
+
+### Preview or SNS sample generation
+
+```bash
+python scripts/create_sns_site.py
+```
+
+## Example Output
+
+Main operational output:
+
+```text
+output/
+|-- A/
+|   |-- 08000A.html
+|   |-- 08001A.html
+|   `-- images/
+`-- generation_log.csv
+```
+
+Simple sample output:
+
+```text
+output/demo01A_index.html
+output/demo06B_index.html
+```
+
+Sample TSV row:
+
 ```tsv
 id	brand_name	reference_url	template	image	therapist_image
-0001	KIMOTO STUDIO	https://kimotostudio21.netlify.app	A	image01.jpg	image26.jpg
+demo01	Demo Site	https://example.com	A	image01.jpg	image26.jpg
 ```
 
-## 必要環境
+## Limitations
 
-- Python 3.6以上
-- openpyxl（Excel読み込み用）
+- Personalization is currently template-driven; it does not generate custom copy with an LLM
+- The Excel path assumes operational worklogs with recognizable columns for brand name, URL, and optional ID
+- The repository currently mixes source files with generated output and local working data
+- There is no automated test suite or pinned dependency manifest in the current checkout
+- Some tracked folders in the current repo, especially `output/`, `sns/`, and private worklogs under `input/`, are better treated as local or generated data than permanent public source
 
-```bash
-pip install openpyxl
-```
+## Related Repositories
 
-## フォルダ構成
+- `lead-finder`: discovers and scores candidate businesses
+- `demo-generator`: generates personalized demo pages and assets
+- `playwright-automation`: uses approved outputs during outreach execution
 
-```
-demo-generator/
-├── input/
-│   ├── 営業ログ(東京).xlsx    # 営業リスト（自動生成用）
-│   ├── list.tsv               # 手動生成用リスト
-│   └── images/                # 画像ファイル（image01.jpg～image33.jpg）
-├── templates/
-│   └── variantA.html          # テンプレートファイル
-├── output/                    # 生成されたHTML
-│   └── generation_log.csv     # 生成ログ
-├── generate.py                # TSVから生成
-├── auto_generate.py           # Excelから自動生成
-└── README.md
-```
+## Roadmap
 
-## 画像について
-
-### メインビジュアル画像（全25枚）
-- **image01-08**: エレガント・上品な雰囲気
-- **image09-16**: ナチュラル・癒し系
-- **image17-25**: モダン・洗練された雰囲気
-
-### 施術者画像（全8枚）
-- **image26-33**: 施術者プロフィール用
-
-## テンプレートについて
-
-### Variant A（variantA.html）
-- **デザイン**: スピリチュアル・ヒーリングサロン向け
-- **カラー**: 淡いピンク・ベージュ系
-- **特徴**:
-  - 固定ヘッダー（Glassmorphism）
-  - 100vhファーストビュー（パララックス）
-  - 施術者プロフィールセクション
-  - スクロール連動アニメーション
-  - モバイルファースト
-
-### セクション構成
-1. 固定ヘッダー
-2. ファーストビュー（100vh、パララックス背景）
-3. コンセプト
-4. 施術者プロフィール
-5. サービスメニュー
-6. お客様の声
-7. アクセス・料金
-8. CTA（お問い合わせ）
-9. フッター（SNSアイコン付き）
-
-### プレースホルダー
-- `{{BRAND_NAME}}`: サロン名
-- `{{IMAGE_URL}}`: メインビジュアル画像のパス
-- `{{THERAPIST_IMAGE_URL}}`: 施術者画像のパス
-- `{{REFERENCE_URL}}`: 公式サイトURL
-- `{{YEAR}}`: 現在の年（自動取得）
-
-## 出力例
-
-```
-output/0001A_index.html  # KIMOTO STUDIO
-output/0002A_index.html  # 癒しの空間 ひかり
-output/0003A_index.html  # Reiki Salon 和
-...
-```
-
-各HTMLファイルは約44KBで、すべてのCSS/JSがインライン化されているため、
-1ファイルで完結します。
-
-## カスタマイズ
-
-### 新しいテンプレートを追加
-1. `templates/variantB.html` を作成
-2. `list.tsv` の `template` 列に `B` を指定
-3. `python generate.py` を実行
-
-### 雰囲気の判定ルールをカスタマイズ
-`auto_generate.py` の `detect_atmosphere()` 関数を編集してください。
-
-### 画像プールを変更
-`auto_generate.py` の `IMAGE_POOLS` 辞書を編集してください。
-
-## トラブルシューティング
-
-### openpyxlがインストールされていない
-```bash
-pip install openpyxl
-```
-
-### 営業ログが読み込めない
-- ファイル名に「営業」が含まれているか確認
-- Excel形式（.xlsx または .xls）であることを確認
-- 「店名」または「ブランド名」の列があることを確認
-
-### 画像が表示されない
-- input/images/ に image01.jpg～image33.jpg があることを確認
-- HTMLファイルから見た相対パス `../input/images/` が正しいか確認
-
-## パフォーマンス
-
-- 146件の営業ログから約10秒で140件のHTMLを生成
-- 各HTMLファイルは約44KB
-- 生成ログCSVで結果を確認可能
-
-## ライセンス
-
-MIT License
-
-## サポート
-
-問題が発生した場合は、`output/generation_log.csv` を確認してください。
-各ファイルがどの画像・雰囲気で生成されたかが記録されています。
+- Keep the public README centered on the operational path and the sample path
+- Separate source assets from generated outputs more cleanly
+- Add a small redacted sample dataset for public use
+- Add a pinned dependency file and a lightweight verification path
+- Reduce tracked bulk output so the repository is easier to review

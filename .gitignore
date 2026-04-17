@@ -1,8 +1,29 @@
+# Python caches and environments
 __pycache__/
-*.pyc
+*.py[cod]
+.pytest_cache/
 .venv/
+venv/
+
+# Local AI / editor settings
 .claude/
+.codex/
+.vscode/
+.idea/
+
+# Generated output and preview artifacts
 output/
-input/
+sns/
+
+# Operational inputs that should usually stay local
+input/*.xlsx
+input/*.xls
+input/*.csv
+!input/image_map.csv
+
+# Logs and OS cruft
 *.log
 nul
+.DS_Store
+Thumbs.db
+*.lnk
