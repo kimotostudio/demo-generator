@@ -31,6 +31,12 @@ Pipeline context:
 
 `lead-finder -> demo-generator -> outreach automation`
 
+## Screenshot
+
+Generated demo page: static HTML output created from an approved lead record and reusable template.
+
+![Demo Generator generated page](docs/demo-generator-page.png)
+
 ## Recommended Usage
 
 ### 1. Main operational path: `auto_generate.py`
