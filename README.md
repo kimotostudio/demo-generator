@@ -41,7 +41,7 @@ Generated demo page: static HTML output created from an approved lead record and
 
 ### 1. Main operational path: `auto_generate.py`
 
-Use this when generating pages from Excel-based worklogs.
+Use this when generating pages from Excel-based worklogs or normalized handoff CSVs from `lead-finder`.
 
 ```bash
 pip install openpyxl
@@ -51,7 +51,7 @@ python auto_generate.py
 Behavior:
 
 - scans `input/` for the first Excel file whose name includes `営業`
-- reads the active sheet
+- reads the active sheet, or reads `--csv` when provided
 - normalizes brand name, URL, and ID fields
 - writes HTML under `output/<TEMPLATE>/`
 - writes `output/generation_log.csv`
@@ -60,8 +60,11 @@ Useful examples:
 
 ```bash
 python auto_generate.py --excel "input/営業ログ(東京).xlsx" --template A --output-template A
+python auto_generate.py --csv "../lead-finder/web_app/output/handoff_normalized_leads_fukuoka_city_20260512_171821.csv" --template A --output-template A
 python auto_generate.py --start-id 8000 --template B --output-template B
 ```
+
+Normalized handoff CSVs should provide at least `id` or `lead_id`, a name field such as `brand_name`, `business_name`, or `company_name`, and a URL field such as `reference_url`, `website`, or `url`.
 
 Operational note:
 
@@ -138,6 +141,7 @@ The repository does not currently include a pinned `requirements.txt` or `pyproj
 ```bash
 python auto_generate.py
 python auto_generate.py --excel "input/営業ログ(東京).xlsx"
+python auto_generate.py --csv "../lead-finder/web_app/output/handoff_normalized_leads_fukuoka_city_20260512_171821.csv"
 python auto_generate.py --start-id 8000 --template A --output-template A
 ```
 
