@@ -13,7 +13,6 @@ try:
     EXCEL_AVAILABLE = True
 except ImportError:
     EXCEL_AVAILABLE = False
-    print("警告: openpyxlがインストールされていません。pip install openpyxlを実行してください。")
 
 
 # 画像プール（雰囲気別）
@@ -135,6 +134,19 @@ def read_excel(file_path):
     return rows
 
 
+def read_csv(file_path):
+    """
+    CSVファイルを読み込む
+    """
+    rows = []
+    with open(file_path, 'r', encoding='utf-8-sig', newline='') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if any(str(value or '').strip() for value in row.values()):
+                rows.append(row)
+    return rows
+
+
 def normalize_column_names(row):
     """
     列名を正規化（全角・半角、大文字・小文字の違いを吸収）
@@ -149,7 +161,7 @@ def normalize_column_names(row):
         key_str = str(key).strip()
 
         # 完全一致チェック
-        if key_str in ['店名', 'ブランド名', 'brand_name', 'name']:
+        if key_str in ['店名', 'ブランド名', 'brand_name', 'business_name', 'company_name', 'salon_name', 'name']:
             if row[key] and str(row[key]).strip():
                 val = str(row[key]).strip()
                 # Excel may contain formulas like =IFERROR(...). If so, try to
@@ -169,16 +181,21 @@ def normalize_column_names(row):
                 normalized['brand_name'] = val
 
         # URL検出（複数のURLカラムがある場合、最初に見つかったものを使用）
-        elif 'url' in key_str.lower() and 'reference_url' not in normalized:
+        elif key_str in ['website', 'reference_url'] or ('url' in key_str.lower() and 'reference_url' not in normalized):
             if row[key] and str(row[key]).strip():
                 url_val = str(row[key]).strip()
                 if url_val.startswith('http'):
                     normalized['reference_url'] = url_val
 
         # ID検出
-        elif key_str.lower() == 'id':
+        elif key_str.lower() in ['id', 'lead_id']:
             if row[key]:
                 normalized['id'] = str(row[key]).strip()
+
+        # Optional template / image hints from normalized handoff CSV
+        elif key_str in ['template', 'image', 'therapist_image']:
+            if row[key] and str(row[key]).strip():
+                normalized[key_str] = str(row[key]).strip()
 
     # IDがない場合は自動生成
     if 'id' not in normalized:
@@ -231,6 +248,8 @@ def generate_html_from_row(row_data, year, template='A', output_template=None, f
         return None
 
     id_val = normalized.get('id', f"{random.randint(1, 9999):04d}")
+    row_template = str(normalized.get('template', '') or '').strip().upper()
+    selected_template = row_template or str(template or 'A').strip().upper()
     # sanitize brand_name to avoid embedding raw Excel formulas like =IFERROR(...)
     import re
     def sanitize_text(s):
@@ -266,10 +285,16 @@ def generate_html_from_row(row_data, year, template='A', output_template=None, f
     # 雰囲気を推測して画像を割り当て
     atmosphere = detect_atmosphere(brand_name, reference_url)
     main_image, therapist_image = assign_images(atmosphere)
+    row_main_image = str(normalized.get('image', '') or '').strip()
+    row_therapist_image = str(normalized.get('therapist_image', '') or '').strip()
+    if row_main_image:
+        main_image = row_main_image
+    if row_therapist_image:
+        therapist_image = row_therapist_image
     if forced_main_image:
         main_image = forced_main_image
 
-    output_template = (output_template or template).strip().upper()
+    output_template = (output_template or selected_template).strip().upper()
 
     # Ensure selected images actually exist in output/<template>/images/
     images_dir = os.path.join('output', output_template, 'images')
@@ -326,7 +351,7 @@ def generate_html_from_row(row_data, year, template='A', output_template=None, f
     therapist_image_url = f'images/{therapist_image}'
 
     # テンプレート読み込み
-    template_content = read_template(template)
+    template_content = read_template(selected_template)
 
     # プレースホルダー置換
     html_content = replace_placeholders(
@@ -341,6 +366,7 @@ def generate_html_from_row(row_data, year, template='A', output_template=None, f
     # 出力ファイル名 (例: 08000A.html)
     output_filename = f'{id_val}{output_template}.html'
     output_path = os.path.join(output_dir, output_filename)
+    relative_output_path = os.path.join(output_dir, output_filename)
 
     # ファイル書き出し
     with open(output_path, 'w', encoding='utf-8') as f:
@@ -354,6 +380,10 @@ def generate_html_from_row(row_data, year, template='A', output_template=None, f
         'reference_url': reference_url,
         'template': output_template,
         'image': main_image,
+        'output_filename': output_filename,
+        'output_path': os.path.abspath(output_path),
+        'relative_output_path': relative_output_path,
+        'status': 'generated',
         'therapist_image': therapist_image,
         'atmosphere': atmosphere
     }
@@ -374,43 +404,65 @@ def main():
     parser.add_argument('--template', '-t', type=str, default='A', help='テンプレート種別 (A/B/C...)')
     parser.add_argument('--output-template', type=str, default=None, help='出力先のテンプレート記号 (例: B)')
     parser.add_argument('--excel', type=str, default=None, help='使用する営業ログExcelファイルのパス')
+    parser.add_argument('--csv', type=str, default=None, help='使用する正規化handoff CSVファイルのパス')
     args = parser.parse_args()
     start_id = args.start_id
     template = (args.template or 'A').strip().upper()
     output_template = (args.output_template or template).strip().upper()
     start_counter = 0
 
+    if args.csv and args.excel:
+        print("エラー: --csv と --excel は同時に指定できません")
+        return
+
+    if args.csv:
+        if not os.path.isfile(args.csv):
+            print(f"エラー: 指定されたCSVファイルが見つかりません: {args.csv}")
+            return
+        print(f"handoff CSVを読み込んでいます: {args.csv}")
+        rows = read_csv(args.csv)
+        if not rows:
+            print("エラー: データが読み込めませんでした")
+            return
+        source_label = args.csv
+    else:
+        rows = []
+        source_label = ""
+
     # 営業ログファイルを探す
     excel_files = []
-    for root, dirs, files in os.walk('input'):
-        for file in files:
-            if file.endswith(('.xlsx', '.xls')) and '営業' in file:
-                excel_files.append(os.path.join(root, file))
+    if not args.csv:
+        for root, dirs, files in os.walk('input'):
+            for file in files:
+                if file.endswith(('.xlsx', '.xls')) and '営業' in file:
+                    excel_files.append(os.path.join(root, file))
 
-    if args.excel:
+    if args.excel and not args.csv:
         if os.path.isfile(args.excel):
             excel_files = [args.excel]
         else:
             print(f"エラー: 指定されたExcelファイルが見つかりません: {args.excel}")
             return
 
-    if not excel_files:
+    if not args.csv and not excel_files:
         print("エラー: 営業ログファイルが見つかりません")
-        print("input/フォルダに「営業」という文字を含むExcelファイルを配置してください")
+        print("input/フォルダに「営業」という文字を含むExcelファイルを配置するか、--csv を指定してください")
         return
 
-    # 最初のファイルを使用
-    excel_file = excel_files[0]
-    print(f"営業ログを読み込んでいます: {excel_file}")
+    if not args.csv:
+        # 最初のファイルを使用
+        excel_file = excel_files[0]
+        print(f"営業ログを読み込んでいます: {excel_file}")
 
-    # Excelを読み込む
-    rows = read_excel(excel_file)
+        # Excelを読み込む
+        rows = read_excel(excel_file)
+        source_label = excel_file
 
-    if not rows:
-        print("エラー: データが読み込めませんでした")
-        return
+        if not rows:
+            print("エラー: データが読み込めませんでした")
+            return
 
-    print(f"\n{len(rows)}件のデータを検出しました")
+    print(f"\n{len(rows)}件のデータを検出しました ({source_label})")
     print("HTMLを生成しています...\n")
 
     # NOTE: Do not copy images. Images are expected to already exist
