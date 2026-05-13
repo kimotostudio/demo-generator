@@ -161,7 +161,7 @@ def normalize_column_names(row):
         key_str = str(key).strip()
 
         # 完全一致チェック
-        if key_str in ['店名', 'ブランド名', 'brand_name', 'business_name', 'company_name', 'salon_name', 'name']:
+        if key_str in ['店名', 'ブランド名', 'display_name', 'brand_name', 'business_name', 'company_name', 'salon_name', 'name']:
             if row[key] and str(row[key]).strip():
                 val = str(row[key]).strip()
                 # Excel may contain formulas like =IFERROR(...). If so, try to
@@ -178,7 +178,10 @@ def normalize_column_names(row):
                         if not val or any(tok in val.upper() for tok in ['IFERROR', 'VLOOKUP', 'INDEX', 'MATCH']):
                             val = ''
 
-                normalized['brand_name'] = val
+                if key_str == 'display_name':
+                    normalized['display_name'] = val
+                if 'brand_name' not in normalized or key_str in ['display_name', '店名', 'ブランド名', 'brand_name', 'business_name']:
+                    normalized['brand_name'] = val
 
         # URL検出（複数のURLカラムがある場合、最初に見つかったものを使用）
         elif key_str in ['website', 'reference_url'] or ('url' in key_str.lower() and 'reference_url' not in normalized):
