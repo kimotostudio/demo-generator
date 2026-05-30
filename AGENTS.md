@@ -79,4 +79,4 @@ https://REAL_PUBLIC_DEMO_BASE/A/<file>.html
 - Keep generated output ignored/local unless explicitly approved.
 - Save the full detailed `Report for ChatGPT` under `reports/codex_reports/YYYYMMDD_HHMM_task_name.md`.
 - Print only the report path plus a short summary in the terminal.
-- Send important task reports to Discord with `~/bin/notify-discord-report`; never expose the webhook URL.
+- Send important task reports to Discord as compact summaries with `~/bin/notify-discord-report`; use `--full` only when explicitly requested, and never expose the webhook URL.
