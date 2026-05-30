@@ -139,7 +139,8 @@ def resolve_source_path(raw_value: str, row: dict[str, str], source_root: Path, 
 
 def destination_for(source_path: Path, source_root: Path, deploy_root: Path) -> Path:
     relative = source_path.resolve().relative_to(source_root.resolve())
-    return deploy_root / relative
+    public_relative = Path(*[part.lower() for part in relative.parts])
+    return deploy_root / public_relative
 
 
 def copy_file(source_path: Path, source_root: Path, deploy_root: Path, copied: set[Path]) -> Path | None:

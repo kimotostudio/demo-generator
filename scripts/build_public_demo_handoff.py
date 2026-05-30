@@ -72,7 +72,7 @@ def normalize_demo_path(raw_path: str, row: dict[str, str], strip_prefix: str) -
         template = pick(row, "template").strip().strip("/")
         if template:
             value = f"{template}/{value}"
-    return value
+    return "/".join(part.lower() for part in value.split("/"))
 
 
 def build_public_url(base_url: str, path_value: str) -> str:
