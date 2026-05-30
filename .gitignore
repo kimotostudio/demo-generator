@@ -17,6 +17,7 @@ env/
 # Generated output and preview artifacts
 output/
 sns/
+deploy_public/
 
 # Operational inputs that should usually stay local
 input/*.xlsx

@@ -1,152 +1,80 @@
 # AGENTS.md
 
-## Repository Purpose
+## Role
 
-`demo-generator` is the page-generation layer in a broader outreach workflow:
+`demo-generator` is responsible for local demo generation, clean public deploy bundles, and public-demo handoff generation.
 
-`lead-finder -> demo-generator -> outreach automation`
+Pipeline position:
 
-Its job is to turn approved prospect data into reviewable demo pages or preview assets that can be used in real outreach. Treat it as an operational, template-driven generator. Do not describe it as an AI copy generator unless that behavior exists in code.
+```text
+lead-finder -> demo-generator -> human review -> playwright-automation
+```
 
-## Recommended Entry Points
+## Current State
 
-Use these in this order when explaining or maintaining the repository:
+- Consumes lead-finder normalized handoff CSV.
+- Generated 22/22 local HTML demo files.
+- Produced `output/handoff_with_demo_paths.csv`.
+- Public demo URL handoff builder exists and is committed:
+  - `afbe5bd Add public demo URL handoff builder`
+- Public URL builder:
+  - `scripts/build_public_demo_handoff.py`
+- Placeholder-base test succeeded:
+  - 22/22 HTTPS demo URLs
+  - `demo_url_http=22`
+  - `url(デモ)` HTTPS count = 22
+  - Playwright strict preflight returned `status=ready`
 
-1. `auto_generate.py`
-   Main operational entry point. Reads Excel-based worklogs from `input/` or `--excel`, assigns images, writes HTML under `output/<template>/`, and writes `output/generation_log.csv`.
-
-2. `generate.py`
-   Simpler TSV-based path for local preview and repo-safe examples. Reads `input/list.tsv` and writes `output/*_index.html`.
-
-3. `scripts/create_sns_site.py`
-   Optional preview/demo generator. Builds `sns/` variants from the existing templates and images.
-
-4. `scripts/generate_by_id_range.py`
-   Narrow helper for targeted generation ranges. Not the recommended public entry point.
-
-5. `extract_and_run.py` and zero-byte helper scripts in `scripts/`
-   Treat these as inactive placeholders unless they are implemented later.
-
-## Important Directories and Files
-
-- `templates/`
-  Source HTML templates. These are core repository assets and should remain tracked.
-
-- `input/`
-  Mixed directory containing sample input, source images, and operational worklogs. Public cleanup should distinguish sample assets from private work data.
-
-- `input/images/`
-  Source images used by the simple path and some preview flows. Keep only assets that are safe and necessary to publish.
-
-- `output/`
-  Generated HTML, logs, and batch artifacts. This is operational output, not source.
-
-- `sns/`
-  Generated preview/demo pages and copied images. This is derived output.
-
-- `scripts/`
-  Helper scripts. Some are active, some are placeholders.
+## Main Entry Points
 
 - `auto_generate.py`
-  Main operational generator.
+  - Main operational generator.
+  - Reads Excel worklogs or `--csv` normalized handoff inputs.
+  - Writes HTML under `output/<template>/`.
+  - Writes `output/generation_log.csv`.
+- `scripts/merge_demo_paths.py`
+  - Merges generated local demo paths back into a normalized handoff CSV.
+- `scripts/build_public_demo_handoff.py`
+  - Converts local demo paths to public demo URLs using `--demo-url-base`.
+- `scripts/build_clean_deploy_folder.py`
+  - Creates a public-safe deploy folder from referenced demo HTML/assets.
 
-- `generate.py`
-  Small sample/demo generator.
+## Safe Work
 
-- `README.md`
-  Public-facing repository overview.
+- Local HTML generation.
+- Local CSV transforms.
+- Public URL handoff generation using a provided base URL.
+- Clean deploy folder creation.
+- `python3 -m py_compile` and local smoke tests.
 
-- `AI_GUIDE.md`, `CLAUDE.md`, `CONSTITUTION.md`
-  Internal maintenance notes. These are not the main public entry point and should not drive the public README.
+## Do Not Do
+
+- Do not perform outreach.
+- Do not deploy without explicit permission.
+- Do not publish internal CSVs.
+- Do not commit generated output CSVs or bulk generated HTML.
+- Do not add fake testimonials, fake client results, or misleading generated claims.
+- Do not deploy `output/` directly if it contains CSVs, historical files, or lead-derived internal data.
+
+## Public Deployment Rule
+
+Create or use a clean `deploy_public/` folder for public deployment. It should contain only public-safe HTML/assets, preserving paths such as:
+
+```text
+A/<file>.html
+A/images/<asset>
+```
+
+If `deploy_public/` is deployed as the site root, public demo URLs should resolve as:
+
+```text
+https://REAL_PUBLIC_DEMO_BASE/A/<file>.html
+```
 
 ## Working Rules
 
-- Preserve behavior of `auto_generate.py` and `generate.py`.
-- Prefer minimal, high-impact cleanup over structural refactors.
-- Do not move `templates/` or change template filenames casually.
-- Do not change placeholder names without checking every template and both generators.
-- Do not commit real client data, private worklogs, or bulk generated output.
-- Keep the public repo grounded in actual implementation, not aspirational architecture.
-
-## Output Consistency Rules
-
-- `auto_generate.py` writes HTML to `output/<output_template>/<id><output_template>.html`.
-- `auto_generate.py` writes `output/generation_log.csv` with keys currently derived from:
-  - `id`
-  - `brand_name`
-  - `reference_url`
-  - `template`
-  - `image`
-  - `therapist_image`
-  - `atmosphere`
-- `generate.py` writes `output/<id><template>_index.html`.
-- Current template placeholders are:
-  - `{{BRAND_NAME}}`
-  - `{{IMAGE_URL}}`
-  - `{{REFERENCE_URL}}`
-  - `{{YEAR}}`
-  - `{{THERAPIST_IMAGE_URL}}`
-- Path behavior differs by entry point:
-  - `auto_generate.py` expects images under `output/<template>/images/`
-  - `generate.py` points to `input/images/`
-- If you change output naming or placeholder contracts, update code, sample commands, and README together.
-
-## Documentation Rules
-
-- Keep the root README concise and truthful.
-- Present `auto_generate.py` as the main operational path.
-- Present `generate.py` as the simple sample path.
-- Do not claim LLM-based generation unless that exists in code.
-- Use real commands and actual file paths from the repository.
-- Call out when directories are generated output rather than maintained source.
-- Mention the Japan/local-business outreach context explicitly.
-
-## Cleanup and Refactor Rules
-
-Safe cleanup:
-
-- README and maintenance docs
-- `.gitignore` improvements
-- Small non-breaking helper cleanup
-- Redacted sample data additions
-- Removing tracked caches or generated artifacts in a deliberate, reviewed pass
-
-Risky cleanup:
-
-- Moving or renaming template files
-- Changing image path conventions
-- Restructuring `input/`, `output/`, or `sns/` without tracing script expectations
-- Deleting helper scripts just because they look old
-- Removing tracked assets without confirming whether they are still needed for generation
-
-If the root looks cluttered, document the split between source and generated data first. Do not force a refactor just for appearance.
-
-## Current Priorities for Public Portfolio Quality
-
-1. Keep the README easy to scan in under a minute.
-2. Make the operational path and sample path obvious.
-3. Reduce tracked generated output and private worklogs over time.
-4. Add a pinned dependency file or a minimal reproducible setup path.
-5. Keep one small public sample dataset and one small sample output set.
-6. Leave the generator logic stable while improving repo hygiene.
-
-## Public Tracking Guidance
-
-Should usually stay tracked:
-
-- `templates/`
-- core generator scripts
-- small redacted sample input such as `input/list.tsv`
-- only the minimum safe image assets required for public examples
-
-Should usually be ignored or removed from public tracking:
-
-- `__pycache__/`
-- `.venv/`
-- `.claude/`
-- `output/`
-- `sns/`
-- private Excel and CSV worklogs under `input/`
-- editor cruft, logs, and shortcuts
-
-Important: updating `.gitignore` does not remove files that are already tracked. If you want a truly clean public repo, follow up with a deliberate de-tracking pass.
+- Read `/home/kimoto/projects/PROJECT_STATE.md` first.
+- Inspect `git status --short` before edits.
+- Keep patches small and repo-specific.
+- Keep generated output ignored/local unless explicitly approved.
+- End with a short report and Discord notification when possible.
