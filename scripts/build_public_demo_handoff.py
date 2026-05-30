@@ -46,7 +46,7 @@ def write_rows(path: Path, fieldnames: list[str], rows: list[dict[str, str]]) ->
         writer.writerows(rows)
 
 
-def normalize_demo_path(raw_path: str, row: dict[str, str], strip_prefix: str) -> str:
+def normalize_demo_path(raw_path: str, row: dict[str, str], strip_prefix: str, path_style: str = "preserve") -> str:
     value = str(raw_path or "").strip()
     if not value:
         return ""
@@ -72,7 +72,10 @@ def normalize_demo_path(raw_path: str, row: dict[str, str], strip_prefix: str) -
         template = pick(row, "template").strip().strip("/")
         if template:
             value = f"{template}/{value}"
-    return "/".join(part.lower() for part in value.split("/"))
+    value = "/".join(part.lower() for part in value.split("/"))
+    if path_style == "basename":
+        return value.rsplit("/", 1)[-1]
+    return value
 
 
 def build_public_url(base_url: str, path_value: str) -> str:
@@ -90,6 +93,12 @@ def main() -> int:
         "--strip-prefix",
         default="output",
         help="Local path prefix to strip before appending to --demo-url-base.",
+    )
+    parser.add_argument(
+        "--path-style",
+        choices=["preserve", "basename"],
+        default="preserve",
+        help="Use 'basename' when deployed demos live at the public site root instead of template subfolders.",
     )
     args = parser.parse_args()
 
@@ -111,7 +120,7 @@ def main() -> int:
     missing = 0
     for row in rows:
         raw_path = pick(row, *DEMO_PATH_FIELDS)
-        public_path = normalize_demo_path(raw_path, row, args.strip_prefix)
+        public_path = normalize_demo_path(raw_path, row, args.strip_prefix, args.path_style)
         if not public_path:
             missing += 1
             continue
