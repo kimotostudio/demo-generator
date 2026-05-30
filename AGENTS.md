@@ -77,4 +77,4 @@ https://REAL_PUBLIC_DEMO_BASE/A/<file>.html
 - Inspect `git status --short` before edits.
 - Keep patches small and repo-specific.
 - Keep generated output ignored/local unless explicitly approved.
-- End with a short report and Discord notification when possible.
+- End with a detailed `Report for ChatGPT` following `/home/kimoto/projects/prompts/final_report_template.md`, plus Discord notification when possible.
