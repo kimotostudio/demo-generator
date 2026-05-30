@@ -77,4 +77,6 @@ https://REAL_PUBLIC_DEMO_BASE/A/<file>.html
 - Inspect `git status --short` before edits.
 - Keep patches small and repo-specific.
 - Keep generated output ignored/local unless explicitly approved.
-- End with a detailed `Report for ChatGPT` following `/home/kimoto/projects/prompts/final_report_template.md`, plus Discord notification when possible.
+- Save the full detailed `Report for ChatGPT` under `reports/codex_reports/YYYYMMDD_HHMM_task_name.md`.
+- Print only the report path plus a short summary in the terminal.
+- Send important task reports to Discord with `~/bin/notify-discord-report`; never expose the webhook URL.

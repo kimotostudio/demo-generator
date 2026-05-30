@@ -18,6 +18,7 @@ env/
 output/
 sns/
 deploy_public/
+reports/codex_reports/
 
 # Operational inputs that should usually stay local
 input/*.xlsx
