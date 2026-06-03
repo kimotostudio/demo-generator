@@ -14,10 +14,14 @@ env/
 .vscode/
 .idea/
 
+# Local Netlify metadata / CLI runtime (generated, do not commit)
+.netlify/
+
 # Generated output and preview artifacts
 output/
 sns/
 deploy_public/
+deploy_public_*/
 reports/codex_reports/
 
 # Operational inputs that should usually stay local
