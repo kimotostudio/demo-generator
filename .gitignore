@@ -37,3 +37,28 @@ nul
 Thumbs.db
 *.lnk
 *.tmp
+
+# --- 2026-06-19 audit additions (heavy/generated/runtime; prefer ignore over delete) ---
+# Generated demo output + review/deploy artifacts (large; reproducible)
+generated_demos/
+deploy_*_review_*/
+# Reports tree (operational artifacts + playwright screenshots; source reports live in docs/)
+reports/
+# Bulk source media / build / test artifacts
+input/images/
+screenshots/
+qa_artifacts/
+playwright-report/
+test-results/
+dist/
+build/
+coverage/
+node_modules/
+# Large doc screenshot (keep docs/*.md tracked)
+docs/*.png
+# Env / secrets (never commit)
+.env
+.env.*
+*.key
+*.pem
+*.token
