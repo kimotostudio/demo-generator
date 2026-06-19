@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Salon Lead Profile (Variant A pipeline v0)",
+  "description": "Structured profile for a single personal-salon lead. Drives salon_booking_v2 template rendering. Honesty rule: only fields backed by real, observed source signals should be filled; everything unknown stays as an explicit [要確認: ...] marker. Never invent menus, prices, owner facts, testimonials, or before/after.",
+  "type": "object",
+  "required": ["business_name", "city", "category", "source_notes"],
+  "properties": {
+    "business_name": {"type": "string", "description": "屋号 / salon name as it should appear. Must be the real name, not a page title/heading/snippet."},
+    "city": {"type": "string", "description": "City, e.g. 札幌市"},
+    "area_or_station": {"type": "string", "description": "Neighborhood or nearest station, e.g. 健軍周辺 / 地下鉄〇〇駅徒歩5分"},
+    "category": {"type": "string", "description": "Primary salon category", "examples": ["リラクゼーション", "アロマ", "ヘッドスパ", "フェイシャル", "小顔", "リンパ", "よもぎ蒸し", "ヒーリング", "カウンセリング", "ボディケア"]},
+    "owner_name": {"type": "string", "description": "Owner/therapist name if publicly stated; else leave empty (renders as [要確認])."},
+    "owner_presence": {"type": "string", "enum": ["high", "medium", "low", "unknown"], "description": "How visible the owner/therapist is on the existing site (greeting, profile, photo). Drives whether the owner block is emphasized."},
+    "website_url": {"type": "string"},
+    "instagram_url": {"type": "string"},
+    "reservation_url": {"type": "string", "description": "Existing booking link (Hotpepper/Reserva/official form). Used as CTA target. Link only — never auto-submitted."},
+    "contact_method": {"type": "string", "description": "Semicolon list of observed contact routes", "examples": ["form;LINE;tel", "ig_dm;hotpepper"]},
+    "main_menu_names": {"type": "array", "items": {"type": "string"}, "description": "Real menu names observed on the source. Do NOT invent."},
+    "price_range": {"type": "string", "description": "Observed price band, or [要確認] if unclear. Do NOT fabricate prices."},
+    "atmosphere_keywords": {"type": "array", "items": {"type": "string"}, "description": "Mood words observed/inferred from the source tone", "examples": [["完全個室", "落ち着いた", "ナチュラル"]]},
+    "target_customer": {"type": "string", "description": "Who the salon is for, in soft non-medical terms."},
+    "visible_strengths": {"type": "array", "items": {"type": "string"}, "description": "Genuine strengths visible on the source (e.g. 個室, 丁寧なカウンセリング, 複数の予約導線)."},
+    "site_weaknesses": {"type": "array", "items": {"type": "string"}, "description": "INTERNAL ONLY — used to choose the demo angle. NEVER rendered into the LP or shown to the recipient (no site criticism)."},
+    "demo_angle": {"type": "string", "description": "One-line angle the demo should emphasize, e.g. '高単価コースの魅力と予約CTAを1ページで見せる'."},
+    "hero_copy": {"type": "string", "description": "Optional. If absent, generator derives a safe hero line from area+category+atmosphere."},
+    "cta_text": {"type": "string", "description": "Optional CTA label. If absent, defaults to a soft 'ご予約・お問い合わせ'."},
+    "risk_flags": {"type": "array", "items": {"type": "string"}, "description": "Compliance/eligibility flags, e.g. medical_efficacy_language, chain, closed_signal, no_contact, strong_existing_lp, regulated_field. Any present flag should block or downgrade the lead."},
+    "source_notes": {"type": "string", "description": "Provenance: where each real field came from. Required for auditability."},
+    "images": {
+      "type": "object",
+      "description": "Optional explicit image references. Only used if locally present AND permission flag set; otherwise neutral placeholders are generated.",
+      "properties": {
+        "hero_image_local_path": {"type": "string"},
+        "owner_image_local_path": {"type": "string"},
+        "permission_to_use": {"type": "boolean", "default": false, "description": "Must be true to use any real/source-derived image. Owner faces are never auto-assigned regardless."}
+      }
+    },
+    "first_visit_price": {"type": "string"},
+    "regular_menu_name": {"type": "string"},
+    "regular_price": {"type": "string"},
+    "seasonal_menu_name": {"type": "string"},
+    "seasonal_price": {"type": "string"},
+    "open_hours": {"type": "string"},
+    "parking_info": {"type": "string"}
+  },
+  "additionalProperties": true
+}

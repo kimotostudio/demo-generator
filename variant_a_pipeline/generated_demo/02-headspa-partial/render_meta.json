@@ -1,0 +1,18 @@
+{
+  "slug": "02-headspa-partial",
+  "images": {
+    "hero_image": {
+      "source": "neutral_svg_placeholder",
+      "confidence": "low",
+      "type": "placeholder"
+    },
+    "owner_image": {
+      "source": "neutral_svg_placeholder",
+      "confidence": "low",
+      "type": "placeholder",
+      "note": "owner faces never auto-assigned"
+    }
+  },
+  "source_notes": "SYNTHETIC / 架空のサンプル。情報が一部欠落したケース（価格・予約URL・オーナー名なし）の[要確認]挙動を検証するための合成データ。",
+  "risk_flags": []
+}

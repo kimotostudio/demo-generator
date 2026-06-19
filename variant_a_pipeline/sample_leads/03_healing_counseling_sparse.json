@@ -1,0 +1,22 @@
+{
+  "slug": "03-healing-counseling-sparse",
+  "business_name": "ヒーリングルーム なぎ",
+  "city": "函館市",
+  "area_or_station": "",
+  "category": "ヒーリング・カウンセリング",
+  "owner_name": "",
+  "owner_presence": "medium",
+  "website_url": "https://example-nagi.test/",
+  "instagram_url": "",
+  "reservation_url": "https://example-nagi.test/reserve/",
+  "contact_method": "form",
+  "main_menu_names": ["エネルギーワーク", "対話セッション"],
+  "price_range": "",
+  "atmosphere_keywords": ["穏やか", "安心して相談しやすい"],
+  "target_customer": "気持ちを落ち着けて整理したい方",
+  "visible_strengths": ["落ち着いた雰囲気", "予約フォームあり"],
+  "site_weaknesses": ["内容の説明が抽象的", "対象者が分かりにくい"],
+  "demo_angle": "どんな人向けか・どう進むかを、断定せず分かりやすく伝える",
+  "risk_flags": [],
+  "source_notes": "SYNTHETIC / 架空のサンプル。スピリチュアル寄りで断定表現を避ける必要があるケースの検証用合成データ。医療・治療・効果の訴求は一切しない。"
+}

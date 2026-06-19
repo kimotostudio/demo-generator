@@ -1,0 +1,32 @@
+{
+  "salon_name_present": true,
+  "area_present": true,
+  "category_known": true,
+  "menu_from_real_info": true,
+  "no_forbidden_in_injected_copy": true,
+  "no_forbidden_in_full_page": true,
+  "booking_route_present": true,
+  "owner_or_atmosphere_reflected": true,
+  "no_invented_owner_photo": true,
+  "sample_image_label_present": true,
+  "proposal_draft_label_present": true,
+  "all_slots_filled": true,
+  "no_external_send_performed": true,
+  "_leftover_slots": [],
+  "_forbidden_in_copy": [],
+  "_forbidden_in_page": [],
+  "_open_to_confirm": [
+    "FIRST_VISIT_PRICE",
+    "OPEN_HOURS",
+    "OWNER_NAME",
+    "OWNER_PROFILE",
+    "OWNER_WORDS",
+    "PARKING_INFO",
+    "PRICE_RANGE",
+    "REGULAR_MENU_NAME",
+    "REGULAR_PRICE",
+    "SEASONAL_MENU_NAME",
+    "SEASONAL_PRICE"
+  ],
+  "_pass": true
+}

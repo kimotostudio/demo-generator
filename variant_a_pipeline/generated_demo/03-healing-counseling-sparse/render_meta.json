@@ -1,0 +1,18 @@
+{
+  "slug": "03-healing-counseling-sparse",
+  "images": {
+    "hero_image": {
+      "source": "neutral_svg_placeholder",
+      "confidence": "low",
+      "type": "placeholder"
+    },
+    "owner_image": {
+      "source": "neutral_svg_placeholder",
+      "confidence": "low",
+      "type": "placeholder",
+      "note": "owner faces never auto-assigned"
+    }
+  },
+  "source_notes": "SYNTHETIC / 架空のサンプル。スピリチュアル寄りで断定表現を避ける必要があるケースの検証用合成データ。医療・治療・効果の訴求は一切しない。",
+  "risk_flags": []
+}

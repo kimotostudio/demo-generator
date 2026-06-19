@@ -1,0 +1,18 @@
+{
+  "slug": "01-aroma-relax-full",
+  "images": {
+    "hero_image": {
+      "source": "neutral_svg_placeholder",
+      "confidence": "low",
+      "type": "placeholder"
+    },
+    "owner_image": {
+      "source": "neutral_svg_placeholder",
+      "confidence": "low",
+      "type": "placeholder",
+      "note": "owner faces never auto-assigned"
+    }
+  },
+  "source_notes": "SYNTHETIC / 架空のサンプル。実在サロンではありません。スキーマ検証とコピー品質確認のための合成データ。",
+  "risk_flags": []
+}

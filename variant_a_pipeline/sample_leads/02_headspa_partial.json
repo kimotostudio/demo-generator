@@ -1,0 +1,22 @@
+{
+  "slug": "02-headspa-partial",
+  "business_name": "ヘッドスパ専門 こもれび",
+  "city": "江別市",
+  "area_or_station": "野幌駅周辺",
+  "category": "ヘッドスパ",
+  "owner_name": "",
+  "owner_presence": "low",
+  "website_url": "https://example-komorebi.test/",
+  "instagram_url": "https://instagram.com/example_komorebi_test",
+  "reservation_url": "",
+  "contact_method": "ig_dm;hotpepper",
+  "main_menu_names": ["ドライヘッドスパ", "炭酸スパ"],
+  "price_range": "",
+  "atmosphere_keywords": ["静か", "癒し", "プライベート"],
+  "target_customer": "眠りや頭の重さが気になる方",
+  "visible_strengths": ["プライベート空間", "Instagramで施術の雰囲気が分かる"],
+  "site_weaknesses": ["価格表が見当たらない", "予約導線がInstagram DMのみ"],
+  "demo_angle": "雰囲気写真と予約導線を整理して、初めての方が迷わない構成にする",
+  "risk_flags": [],
+  "source_notes": "SYNTHETIC / 架空のサンプル。情報が一部欠落したケース（価格・予約URL・オーナー名なし）の[要確認]挙動を検証するための合成データ。"
+}
