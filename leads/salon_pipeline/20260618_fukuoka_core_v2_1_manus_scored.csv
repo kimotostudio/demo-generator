@@ -1,0 +1,49 @@
+name,city,category,url,grade,reason
+Sonno,久留米市,ドライヘッドスパ,https://www.instagram.com/sonno_221022/,B(A-promotable),"head-spa + IG = proven shape (akazukin/nemunomori). Enrich: IG recency, reservation, claim-free, own-LP."
+はねのて,久留米市,ヘッドスパ,https://www.instagram.com/hanenote_salon/,B(A-promotable),"head-spa + IG. Enrich: IG recency, reservation route, own-LP weakness."
+よもぎ蒸しサロンLuana,久留米市,よもぎ蒸し,https://www.instagram.com/p/CUgchj8BxBr/,B,yomogi + IG. Enrich own-site/IG recency; claim-free.
+ぬるまゆリラクゼーション,久留米市,リラクゼーション,https://nurumayu-relaxation.com/,B,own-site relaxation. Enrich active/owner-led/claim.
+リラクゼーションサロン Leafy,久留米市,リラクゼーション,https://leafy-kurume.com/,B,own-site relaxation. Enrich.
+HALU Reflexology,久留米市,リフレ/リンパ,https://halu-reflexology.com/,B,reflexology/lymph own-site. Enrich claim-free.
+リラクゼーションサロン Betty,久留米市,リラクゼーション,https://betty-kurume.com/,B,own-site. Enrich.
+GIFTリラクゼーション久留米,久留米市,リラクゼーション,https://gift-kurume.com/,B,own-site. Enrich.
+Relaxation Salon BODYBRAND,久留米市,ボディ/エステ,https://bodybrand.jp/,B,own-site relaxation/body. Enrich; check no痩身/小顔 claim.
+らっくん,久留米市,リラクゼーション,https://rakkun.jimdofree.com/,B,weak Jimdo = demo-fit HIGH. Enrich active/owner-led.
+癒しの館,久留米市,リラクゼーション,https://iyashikan.jimdofree.com/,B,weak Jimdo = demo-fit. Enrich.
+Petite Salon H,久留米市,リンパ,https://petit-saron-h.jimdofree.com/,B,lymph + weak Jimdo = demo-fit. Enrich claim-free.
+自宅サロンma maniere,筑後市,リラクゼーション,https://beauty.hotpepper.jp/kr/slnH000734922/,B,自宅サロン signal (owner-led). Portal-listed → enrich own-site/IG.
+鼓結 -KOMUSUBI-,小郡市,リラクゼーション,https://www.instagram.com/p/DU2I7sSE0BI/,B,relaxation + IG (小郡). Enrich own-site/recency.
+est.seed,筑後市,リラクゼーション,https://beauty.hotpepper.jp/kr/slnH000782363/,C,portal-only; enrich own-site/IG.
+Luce,筑後市,エステ,https://beauty.hotpepper.jp/kr/slnH000810846/,C,esthe-generic portal; verify category fit/claim.
+tokobi,筑後市,エステ,https://beauty.hotpepper.jp/kr/slnH000627557/,C,esthe-generic portal; verify.
+Plume blanche,久留米市,エステ,https://plume-b.jimdofree.com/,C,esthe Jimdo; verify claim/fit.
+Affectie,久留米市,エステ,https://luola.jimdofree.com/,C,esthe Jimdo; verify claim/fit.
+ツルとフクロウ TSURUFUKU,八女市,リラクゼーション,https://beauty.hotpepper.jp/kr/slnH000811902/,C,portal-only (八女); enrich.
+こころえくれれ,八女市,リラクゼーション,https://beauty.hotpepper.jp/kr/slnH000791878/,C,portal-only (八女); enrich.
+salon Hale Olina,八女市,フェイシャル,https://beauty.hotpepper.jp/kr/slnH000797112/,C,facial portal (八女); verify claim.
+ミューズ,小郡市,フェイシャル,https://www.instagram.com/reel/DY1vL9BSykX/,C,facial IG reel; verify business/claim.
+yuka (kasumiso),小郡市,よもぎ蒸し,https://www.ameba.jp/profile/general/hotaru1122/,C,"yomogi ameba blog; thin source, enrich."
+Amo,小郡市,よもぎ蒸し,ameba (truncated),C,"yomogi ameba; thin source, enrich."
+美容神経整体サロン Re++,筑後市,神経整体,https://beauty.hotpepper.jp/kr/slnH000778241/,Exclude,整体/神経 = treatment-adjacent (Yu decision 5).
+ちえこ はりお灸院,筑後市,鍼灸,https://beauty.hotpepper.jp/kr/slnH000810921/,Exclude,鍼灸/医療系.
+ながはま整体院,筑後市,整体,https://beauty.hotpepper.jp/kr/slnH000775763/,Exclude,整体.
+からだ未来整骨院・整体院,鳥栖市,整骨/整体,https://beauty.hotpepper.jp/kr/slnH000411147/,Exclude,整骨院/整体.
+鍼灸リラクゼーションサロンLeafy,大川市,鍼灸,slnH000782163(URL collision),Exclude,鍼灸 + 大川=out-of-core + URL collision.
+骨盤ダイエットサロン camphrier,鳥栖市,ダイエット/エステ,https://beauty.hotpepper.jp/kr/slnH000441997/,Exclude,骨盤ダイエット = 痩身 claim.
+痩身・小顔コルギ専門店 Felicia,鳥栖市,痩身/小顔,https://beauty.hotpepper.jp/kr/slnH000649033/,Exclude,痩身・小顔 claim.
+BUPURA 鳥栖店(小顔矯正),鳥栖市,小顔矯正,https://beauty.hotpepper.jp/kr/slnH000758171/,Exclude,小顔矯正 claim + chain店.
+痩身フェイシャルサロン parfum doux,大川市,痩身/フェイシャル,https://beauty.hotpepper.jp/kr/slnH000598016/,Exclude,痩身 + 大川=out-of-core.
+体質改善サロン,小郡市,体質改善/リンパ,ameba,Exclude,体質改善 = treatment-adjacent claim.
+ROU.RI,大川市,エステ,slnH000782163(collision),Exclude,大川=out-of-core + URL collision.
+ゆう庵,大川市,リラクゼーション,slnH000782163(collision),Exclude,大川=out-of-core + URL collision.
+AGELESS,筑後市,まつげ,https://beauty.hotpepper.jp/kr/slnH000700894/,Exclude,eyelash = off-category.
+Total Beauty Salon Apolo,八女市,まつげ,https://beauty.hotpepper.jp/kr/slnH000489362/,Exclude,eyelash = off-category.
+Nail&Beauty NEON 八女店,八女市,ネイル/まつげ,https://beauty.hotpepper.jp/kr/slnH000522913/,Exclude,nail/eyelash + chain店 = off-category.
+BELINDA beauty salon,鳥栖市,まつげ,slnH000758171(collision),Exclude,eyelash off-category + URL collision.
+eye&nail amita,小郡市,まつげ/ネイル,ameba,Exclude,eyelash/nail = off-category.
+マツエク＆リラクゼーションrei to you,久留米市,まつげ,https://reitoyou.jimdofree.com/,Exclude,まつげ primary = off-category (relaxation secondary).
+エイジングレスサロン COCORO 八女店,八女市,エステ,https://beauty.hotpepper.jp/kr/slnH000100640/,Exclude,「八女店」= chain/multi-branch.
+Rutilebeautysalon八女店,八女市,エステ,https://beauty.hotpepper.jp/kr/slnH000782163/,Exclude,「八女店」= chain + URL collision root.
+NaNairo サロン nicolly,筑後市,エステ,https://beauty.hotpepper.jp/kr/slnH000628089/,Exclude,NaNairo = same URL as Pua Manu = chain/dup.
+NaNairoサロン Pua Manu,鳥栖市,エステ,https://beauty.hotpepper.jp/kr/slnH000628089/,Exclude,NaNairo chain (dup URL w/ nicolly).
+Pear/ペア,久留米市,リンパマッサージ,https://pear-salon.jimdofree.com/,Exclude(dup),DUPLICATE = our existing Pear demo (already in pipeline).

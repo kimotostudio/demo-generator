@@ -1,0 +1,54 @@
+{
+  "business_name": "Petite Salon H（プティサロンH）",
+  "category": "リンパ／ヘッドスパ／フェイシャル（おうちサロン）",
+  "city": "久留米市",
+  "area": "おうちサロン（住所は予約時案内・住宅街）",
+  "source_urls": [
+    "https://petit-saron-h.jimdofree.com/ (verified, weak Jimdo)",
+    "HotPepper Beauty 掲載",
+    "LINE / Instagram"
+  ],
+  "source_type": "own Jimdo (verified) + HotPepper + LINE/IG",
+  "source_confidence": "medium-high (own-site verified, services/reservation confirmed; IG recency to confirm)",
+  "visible_services": [
+    "リンパトリートメント",
+    "リフレクソロジー",
+    "ドライヘッドスパ",
+    "フェイシャル",
+    "ボディ（筋膜リリース）"
+  ],
+  "prices_if_visible": "not fully captured (要差し替え・internal)",
+  "reservation_contact": {
+    "hotpepper": "yes",
+    "line": "yes",
+    "tel": "090-5926-4279",
+    "email": "yes",
+    "online_booking": "yes"
+  },
+  "owner_staff": "峯藤千賀子（Chikako Minefuji）／ALTH認定講師・RAJA認定セラピスト・筋膜リリース/姿勢系資格。owner-led 1人運営のおうちサロン",
+  "atmosphere_keywords": [
+    "おうちサロン",
+    "女性専用",
+    "完全予約",
+    "手技中心",
+    "落ち着いた住宅街"
+  ],
+  "hours_parking": "月-金 9:00-19:00 / 土 9:00-18:00 / 日祝休（要再確認）",
+  "source_claims_requiring_safe_rewrite": [
+    "サイトに『未病/血行/便秘/こり』等のwellness表現あり → demoでは一切不使用(OMIT)。改善/効果/痩身/小顔は出さない。手技=relaxation表現のみ"
+  ],
+  "demo_angle": "久留米の女性専用おうちサロン。リンパ・ヘッドスパ・フェイシャルを、静かな空間でひとりずつ。雰囲気と予約の流れが伝わる1ページ。",
+  "unknown_fields": [
+    "実メニュー名/料金/所要時間",
+    "実写真の権利",
+    "IGの直近活動(≤3-6か月)"
+  ],
+  "risk_flags": [
+    "効果/医療/未病claimを排除(OMIT)",
+    "IG鮮度はYu/手動確認",
+    "おうちサロン=住所は予約時のみ(プライバシー)"
+  ],
+  "demo_fit": "HIGH (active, owner-led, multi-service, strong reservation routes, weak Jimdo own-LP)",
+  "grade": "A (verified via own-site enrichment; claim-free demo possible by OMIT)",
+  "notes_for_Yu_review": "Manus round1+Claude enrichで検証済。owner-led・予約導線複数・弱Jimdo=demo-fit。demoはclaim-free(未病/改善/痩身/小顔は不使用)。価格/写真は差し替え前提(internal)。IG直近活動の確認のみ残。"
+}

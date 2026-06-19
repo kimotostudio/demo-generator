@@ -1,0 +1,51 @@
+{
+  "business_name": "ドライヘッドスパ ねむの森",
+  "category": "ドライヘッドスパ",
+  "city": "久留米市",
+  "area": "荘島町（8-7 2F・久留米駅圏）",
+  "source_urls": [
+    "Instagram @nemunomori (verified handle)",
+    "HotPepper slnH000434912",
+    "EPARK rrk61336",
+    "beauty-park 344111 (now HTTP 404)"
+  ],
+  "source_type": "portal listings + Instagram (no strong own-site found = demo-fit high)",
+  "source_confidence": "medium (portal/IG-based; full menu/photos unaudited; beauty-park page 404; IG recency NOT verifiable via WebSearch)",
+  "visible_services": [
+    "ドライヘッドスパ（頭を中心にゆっくり揉みほぐし）"
+  ],
+  "prices_if_visible": "ドライヘッドスパ 45分 ¥3,600（他メニュー未確認）",
+  "reservation_contact": {
+    "tel": "070-1257-8844",
+    "hotpepper": "yes (slnH000434912)",
+    "instagram": "@nemunomori"
+  },
+  "owner_staff": "頭部中心の専門スタジオ（owner/staff紹介ページがEPARKに存在）。owner-led likely.",
+  "atmosphere_keywords": [
+    "久留米・荘島",
+    "仕事帰りにも",
+    "頭をほどく",
+    "疲れ・ストレスOUT",
+    "静かに揉みほぐす",
+    "都市の小さな専門店"
+  ],
+  "hours_parking": "13:30–22:30(最終21:30) / 日曜は19:30まで / 定休=月・第1.3日曜（要再確認）",
+  "source_claims_requiring_safe_rewrite": [
+    "head-spa業態は不眠/眼精疲労/頭痛/疲労回復を訴求しがち → demoでは一切不使用(OMIT)。彼らの全コピーは未監査のため、非OMIT使用前に要確認"
+  ],
+  "demo_angle": "久留米・荘島の、頭をほどくドライヘッドスパ。仕事帰りにも立ち寄れる、静かに頭を休める時間を1ページで。",
+  "unknown_fields": [
+    "フルメニュー/所要時間",
+    "実写真の権利",
+    "IGの直近活動(3-6か月以内か)",
+    "自前サイトの有無(おそらく無し=demo-fit)"
+  ],
+  "risk_flags": [
+    "効果/医療claimの混入を排除(OMIT)",
+    "IG鮮度未検証=A確定の前にYu/手動でIG直近投稿を確認(Yu決定4)",
+    "都市型立地(古民家ではない)→akazukinとは別のビジュアル方向"
+  ],
+  "demo_fit": "HIGH (active via portal/IG, weak/absent own conversion LP)",
+  "grade": "A (provisional, pending IG-freshness confirm)",
+  "notes_for_Yu_review": "赤ずきんと同じ『久留米×ヘッドスパ×owner-led×claim-light×弱い自前LP』の勝ち筋の別店。demoはclaim-free(OMIT)。価格=category-fallback/baseline写真→実メニュー・実写真は差し替え前提(internal)。IG直近活動の確認だけYu/手動でお願い。"
+}

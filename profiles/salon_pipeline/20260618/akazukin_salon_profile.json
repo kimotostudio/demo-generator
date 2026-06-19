@@ -1,0 +1,23 @@
+{
+  "business_name": "久留米ドライヘッドスパ赤ずきん",
+  "category": "ドライヘッドスパ",
+  "city": "久留米市", "area": "三瀦町田川",
+  "source_urls": ["http://akazukin2018.com/ (TLS cert invalid — not fetched)", "https://lit.link/en/akazukin2018 (verified)", "search snippets (HotPepper/EPARK/blogs)"],
+  "source_type": "lit.link aggregator + search snippets",
+  "source_confidence": "medium (lit.link verified; own site unverifiable via TLS; prices unconfirmed)",
+  "visible_services": ["ドライヘッドスパ(水・オイル不使用・オールハンド)", "深眠1DAY講座"],
+  "services_present_but_OMIT_from_demo": ["小顔整顔(=小顔表現→除外)"],
+  "prices_if_visible": "not shown (unknown)",
+  "reservation_contact": {"line": "lin.ee/mgAFSgm", "tel": "090-2587-2018", "instagram": "@akazukin2018", "hotpepper": "yes", "website": "akazukin2018.com"},
+  "owner_staff": "井上 / 元看護師(医療従事20年超) / ヘッドマイスター",
+  "atmosphere_keywords": ["築150年の古民家", "癒しの古民家", "静か", "落ち着いた"],
+  "hours_parking": "日曜10:00-18:30(他曜日は要確認) / 駐車場2台",
+  "source_claims_requiring_safe_rewrite": ["脳脊髄液/血流/自律神経を整える・改善", "不眠/眼精疲労/疲労への効果訴求", "小顔整顔"],
+  "strengths": ["古民家=強い世界観(editorial LP好相性)", "ドライヘッドスパ専門=低claim category", "owner経歴が明確", "予約導線が複数(LINE/tel/IG/HotPepper)"],
+  "site_weaknesses": ["自前サイトがTLS不正/lit.link依存=自前LPが弱い→demo-fit高", "価格非開示", "営業時間が不明瞭"],
+  "demo_angle": "築150年の古民家で、静かに休めるドライヘッドスパ。初めての方にも、雰囲気と予約の流れが伝わる1ページ。",
+  "unknown_fields": ["価格", "全曜日の営業時間", "写真の使用可否"],
+  "risk_flags": ["own copy uses 小顔/自律神経/改善/不眠 → demoでは全て不使用", "元看護師→『看護師だから改善』禁止", "実写真は権利未確認→baseline face-free素材"],
+  "extraction_confidence": "medium",
+  "notes_for_Yu_review": "A候補。古民家×ドライヘッドスパは世界観が強くbaselineと好相性。demoは厳格にclaim-free(小顔/医療効果/不眠改善は一切出さない)。価格は実データ未取得のためcategory-fallback(料金は要確認)。"
+}

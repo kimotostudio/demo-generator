@@ -1,0 +1,23 @@
+{
+  "business_name": "Pear / ペア",
+  "category": "リンパ / よもぎ蒸し(リラクゼーション)",
+  "city": "久留米市", "area": "安武町(西鉄久留米駅 徒歩5分)",
+  "source_urls": ["https://pear-salon.jimdofree.com/ (verified)"],
+  "source_type": "own Jimdo site (verified)",
+  "source_confidence": "medium-high (site verified; prices unconfirmed)",
+  "visible_services": ["リンパマッサージ", "よもぎ(ハーブ)蒸し", "ヘッドマッサージ"],
+  "services_present_but_OMIT_from_demo": ["wax脱毛(副次・demo対象外)"],
+  "prices_if_visible": "not shown clearly (unknown)",
+  "reservation_contact": {"form": "yes", "line": "official LINE", "instagram": "@pear_salon.hi_ko"},
+  "owner_staff": "オーナー(体験談あり) — ※妊活/前職フレーミングはdemoで不使用",
+  "atmosphere_keywords": ["自宅サロン", "女性専用", "あたたかい", "落ち着いた"],
+  "photo_evidence": "写真ギャラリーあり(商品/空間/施術) — 実写真は権利未確認→baseline face-free素材を使用",
+  "source_claims_requiring_safe_rewrite": ["妊活/不妊サポート", "不調を整える/改善"],
+  "strengths": ["ACTIVE(更新/campaign/予約)", "連絡導線が複数(form/LINE/IG)", "女性専用・自宅サロンのあたたかさ", "リンパ/よもぎ=relaxation軸でclaim-free化しやすい"],
+  "site_weaknesses": ["価格/メニュー詳細が薄い", "自前LP(Jimdo)が弱い→demo-fit"],
+  "demo_angle": "西鉄久留米駅すぐ、女性専用の小さな自宅サロン。リンパとよもぎ蒸しで、静かに過ごせる時間と予約の流れを1ページで。",
+  "unknown_fields": ["価格", "メニュー所要時間"],
+  "risk_flags": ["妊活/改善表現はdemoで一切不使用→relaxation限定", "wax/脱毛はdemo対象外", "実写真は権利未確認"],
+  "extraction_confidence": "medium-high",
+  "notes_for_Yu_review": "B候補。relaxation限定(リンパ/よもぎ)でclaim-free demo可。妊活・改善・脱毛は出さない。情報十分→demo化でA昇格判定可。"
+}

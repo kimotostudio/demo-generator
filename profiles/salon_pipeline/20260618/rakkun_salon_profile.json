@@ -1,0 +1,47 @@
+{
+  "business_name": "らっくん",
+  "category": "リラクゼーション（おうち/隠れ家サロン）",
+  "city": "久留米市",
+  "area": "久留米・古賀（マンションの一室の隠れ家サロン、女性専用、住所は予約時案内）",
+  "source_urls": [
+    "https://rakkun.jimdofree.com/ (verified, dated Jimdo)"
+  ],
+  "source_type": "own Jimdo (verified)",
+  "source_confidence": "medium (own-site verified; menu/photos thin; IG recency unknown)",
+  "visible_services": [
+    "もみほぐし/リラクゼーション（10分から選べる短時間メニュー）"
+  ],
+  "prices_if_visible": "短時間から（詳細は要差し替え・internal）",
+  "reservation_contact": {
+    "tel": "090-8225-6220",
+    "line": "yes",
+    "email": "yes",
+    "note": "日中は電話に出られないことあり→メール/LINE推奨"
+  },
+  "owner_staff": "1人運営のおうちサロン（owner-led）",
+  "atmosphere_keywords": [
+    "マンション一室",
+    "隠れ家",
+    "女性専用",
+    "短い時間から",
+    "静か"
+  ],
+  "hours_parking": "不定（前日までの予約推奨。要再確認）",
+  "source_claims_requiring_safe_rewrite": [
+    "wellness/relaxation表現のみ。改善/効果/痛み/痩身/医療は不使用(OMIT)"
+  ],
+  "demo_angle": "久留米のマンション一室の隠れ家、女性専用の小さなリラクゼーション。短い時間から、静かに過ごせる1ページ。",
+  "unknown_fields": [
+    "実メニュー名/料金/所要時間",
+    "実写真の権利",
+    "IGの有無と直近活動"
+  ],
+  "risk_flags": [
+    "claim-free維持(OMIT)",
+    "おうちサロン=住所は予約時のみ",
+    "IG鮮度未確認→Yu/Manus確認"
+  ],
+  "demo_fit": "HIGH (owner-led, women-only隠れ家, dated Jimdo own-LP, flexible short menus)",
+  "grade": "A (verified own-site)",
+  "notes_for_Yu_review": "Manus R1+Claude enrichで検証済。owner-led・女性専用隠れ家・弱Jimdo=demo-fit・claim軽。demoはclaim-free。価格/写真は差し替え前提(internal)。IG確認のみ残。"
+}

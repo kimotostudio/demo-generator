@@ -1,0 +1,20 @@
+name,city,category,url,grade,reason
+Mainte,八女市,ドライヘッドスパ,IG @mainte_headspa,A,"head-spa, IG active 2026-02, owner-led private salon, no own-site=demo-fit, claim none. IG-only (thin source for demo)."
+medelu,小郡市,よもぎ蒸し,IG @medelu_salon,A,"yomogi, IG active 2026-05 (very recent), owner-led, no site=demo-fit. IG-only."
+てのひら,八女市,ボディケア/よもぎ,IG @tenohira_relaxation,A,"body care+yomogi, IG active, LINE, owner-led, no site=demo-fit. IG-only."
+osaji,八女市,よもぎ蒸し,IG @osaji_yomogi,A,"yomogi specialist, IG active 2026-01, owner-led, no site=demo-fit. IG-only."
+Petite Salon H,久留米市,リンパ/ヘッドスパ/フェイシャル,https://petit-saron-h.jimdofree.com/,A,"VERIFIED (Claude enrich): owner-led おうちサロン, reservation HotPepper/LINE/tel/online, weak Jimdo=demo-fit. claim OMIT 未病. DEMO BUILDING."
+らっくん,久留米市,リラクゼーション,https://rakkun.jimdofree.com/,A,"VERIFIED (R1 enrich): 隠れ家マンション, women-only, weak Jimdo, claim-light."
+くつろぎ,小郡市,リンパ,https://ameblo.jp/kutsurogi05/,B,"lymph, Ameba updated 2026-03, owner-led, ameba-only=demo-fit. Enrich own-site/IG/claim."
+hammock,小郡市,リラクゼーション,https://ameblo.jp/hammock2016/,B,"relaxation, long-term ameba, owner-led=demo-fit. Enrich."
+Tinycell,久留米市,リンパ,https://tinycell.jimdofree.com/,B,lymph Jimdo active. CLAIM caveat 'medical-ish' → verify claim-free possible before A.
+Affectie,久留米市,エステ,https://luola.jimdofree.com/ + IG @affectie.salon,B,"R1 dup, now +IG. Jimdo/IG active. Verify category/claim."
+Repos,鳥栖市,アロマ,EPARK shop/173326,B,portal-only (EPARK) → conditional B. Enrich own-site/IG.
+bloom,鳥栖市,アロマ,Mitsuraku salon/83818,B,"portal-only (Mitsuraku), healing-focus but relaxation-first → conditional B. Enrich+claim check."
+Aura Aura Olive Green,八女市,アロマ,https://aroma-aura-olive-green.jimdofree.com/,B,Jimdo active. CAVEAT 'hospital-linked' → verify not clinic/treatment before A.
+Sorciere,八女市,フェイシャル,https://sorciere-japan.com/,C,facial own-site but TLS self-signed = unfetchable → unverified. Confirm active+claim manually.
+Plume blanche,久留米市,エステ,https://plume-b.jimdofree.com/,C,"R1 dup, no new info. esthe Jimdo; verify category/claim."
+E'NAL,小郡市,エステ,Ameba (2020),C,Ameba last updated 2020 = likely inactive. Confirm activity or drop.
+Eclat.,鳥栖市,エステ/痩身,https://eclat-esthetic.storeinfo.jp/,Exclude,VERIFIED claim risk: 'Cellulite Zero'/痩身/結果訴求(むくみ減少/body contour) = treatment-adjacent (Yu decision 5).
+つるり,八女市,脱毛,https://tsululi.com/,Exclude,脱毛 primary = off-target/treatment-adjacent (headspa menu secondary only).
+縁とんとん,佐賀市(NOT core),アロマ/よもぎ,https://entonton.jimdofree.com/,Exclude,VERIFIED: relaxation & claim-free & owner-led BUT actual location=佐賀市 (outside core 久留米/筑後/小郡/八女/鳥栖) = location mismatch. (Optional-B IF Saga City allowed.)

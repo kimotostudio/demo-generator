@@ -1,0 +1,17 @@
+lead_id,business_name,category,city,region,website_url,instagram_url,reservation_url,contact_method,owner_presence,active,site_weakness,demo_fit,regulatory_risk,portal_dependency,overall,rank,confidence,reason,recommended_demo_angle,risk_flags,next_action
+sz01,すやツヤ,ヘッドスパ(ドライ),浜松市中央区,静岡,https://www.suyatsuya.com/,,hotpepper,LINE;tel;hotpepper,unknown,high,low,low,low,low,B,verified,"独立・女性専用・完全個室。だが既にモダンな自社サイト＝demo改善余地小",予約導線整理は弱め;世界観は既に良い,none,park(demo-fit低)
+sz02,香りの小瓶,アロマ(school+salon),浜松市,静岡,https://kaorinokobin.com/,,,unknown,unknown,med,unknown,unknown,low,low,C,low,"自社サイトあり。ただしアロマ『スクール』寄りの可能性→salon demo-fit要確認",要確認,school_bias?,enrich(サイト確認)
+sz03,癒薫(ゆうか),アロマ&エステ,静岡市本通,静岡,,,,unknown,med,high,unknown,med,med,med,C,low,"マンツーマン・リピート95%訴求。エステ＝美容表現リスク要確認(癒/効果系)",要確認,beauty_claims?;repeat95_claim,enrich(URL/claims確認)
+sz04,Salonミルフィオリ,リラクゼーション/アロマ,静岡市,静岡,,,,unknown,unknown,med,unknown,unknown,low,unknown,C,low,"女性専用・完全プライベート。URL未取得",要確認,none,discover(URL)
+sz05,ル・アンフレ,アロマ(shop+salon),静岡市,静岡,,,,unknown,unknown,med,unknown,unknown,low,med,C,low,"アロマ製品ショップ併設サロン。物販寄りの可能性",要確認,retail_bias?,enrich(URL)
+sz06,浜松ヘッドスパ青空,ヘッドスパ(温冷),浜松市,静岡,,,,unknown,unknown,med,unknown,unknown,low,unknown,C,low,"大人向け隠れ家・温冷ヘッドスパ。URL未取得",要確認,none,discover(URL)
+sz07,静岡人宿町アロマ隠れ家,アロマ/リンパ,静岡市人宿町,静岡,,,,unknown,unknown,high,unknown,unknown,low,unknown,C,low,"女性限定60分¥7,700・移転済み(active)。屋号/URL未確定",要確認,none,discover(屋号/URL)
+sz08,静岡自宅サロン(女性専用アロマ),アロマ/フェイシャル,静岡市,静岡,,,,unknown,med,high,unknown,unknown,med,unknown,C,low,"自宅サロン・完全個室・子連れOK。屋号未確定。痩身/フェイシャル併記→claims要確認",要確認,slimming_mention?,discover+enrich
+sz09,癒しの部屋らふぁえる,英国式リフレ/アロマ,浜松市中央区,静岡,,,ameblo,LINE;tel,low,high,high,high,med,low,B,verified,"独立・女性専用・完全予約・弱いブログサイト=demo-fit高。ただし自社コピーに『改善』医療表現→demoは清潔コピーで回避前提",予約導線+世界観整理(改善表現は使わない),own_copy_uses_改善,demo-candidate(clean-copy)
+sz10,凛灯 rinto,アロマ(school+salon),浜松市中央区,静岡,https://aroma-rinto.jimdofree.com/,ig_dm,,ig_dm;tel,low,high,high,med,med,low,C,verified,"独立・弱いJimdo。ただしスクール主体+霊性/クリスタル=スピ感+自然治癒力/抗酸化の軽い表現",—,school_bias;spiritual;mild_claims,park
+sz11,クラール(curar),アロマリンパ,駿東郡清水町,静岡,https://peraichi.com/landing_pages/view/curar/,,peraichi,,unknown,high,high,unknown,unknown,low,C,unverified_403,"完全個室・女性向けと記載。peraichiがfetch 403でbot-block→未検証",—,peraichi_blocked,alt-verify(手動/IG)
+sz12,河音〜かのん〜,ヘッドスパ,浜松市,静岡,,,peraichi(404),,unknown,unknown,unknown,unknown,low,unknown,C,dead_url,"ヘッドスパ個人サロンと記載だがperaichi URLが404=リンク切れ/移転",—,stale_url,re-discover(屋号)
+sz13,M's Aroma Bar,アロマ+フェイシャル,静岡(要確認),静岡,https://msaromabar.hp.peraichi.com/,,peraichi,,unknown,med,high,unknown,unknown,low,C,unverified,"アロマ/ヘッド/フェイシャル5コース・男女可。peraichi=fetch不可の可能性",—,peraichi_block?;facial_claims?,alt-verify
+sz14,アロマケアCocoro,アロマ+訪問,三島市,静岡,https://aroma-cocoro.jimdofree.com/,,,,unknown,med,high,unknown,low,low,C,partial,"三島・アロマ+訪問ケア・弱いJimdo。訪問併設=店舗LP適合は要確認",—,visiting_care_mix,enrich
+sz15,アロマケアCocoro(verified),アロマ+訪問,三島市,静岡,https://aroma-cocoro.jimdofree.com/,,form;tel;sms,low,CLOSED,high,low,low,low,Exclude,verified,"独立・無claims・弱Jimdo=本来demo-fit可。ただしサイトに『休業中』→active business不成立",—,closed_now,EXCLUDE(休業中)
+sz16,アロマさろんにーず,アロマ,兵庫(播磨/明石),非対象,https://needs-aroma.jimdofree.com/,,form;tel;line,med,high,high,low,low,low,Exclude,verified,"兵庫=対象外。かつ『身体の改善』表現",—,wrong_region;改善,EXCLUDE(region)

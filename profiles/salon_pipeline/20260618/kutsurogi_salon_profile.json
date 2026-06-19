@@ -1,0 +1,50 @@
+{
+  "business_name": "くつろぎ",
+  "category": "よもぎ蒸し / リンパ",
+  "city": "小郡市",
+  "area": "小郡市星田（自宅サロン・住所は予約時案内、イオン小郡から車5分）",
+  "source_urls": [
+    "Instagram @setsuko.mimi",
+    "Ameba ameblo.jp/kutsurogi05",
+    "LINE @483tefmt",
+    "予約フォーム formzu S186503036"
+  ],
+  "source_type": "Ameba blog + IG + LINE/form (no own site = demo-fit)",
+  "source_confidence": "medium (active ameba/IG; owner-led confirmed)",
+  "visible_services": [
+    "よもぎ蒸し",
+    "リンパマッサージ"
+  ],
+  "prices_if_visible": "未取得（予約先で確認）",
+  "reservation_contact": {
+    "line": "@483tefmt",
+    "form": "ws.formzu.net/fgen/S186503036/",
+    "instagram": "@setsuko.mimi"
+  },
+  "owner_staff": "オーナー（深山節子）1人運営の女性専用自宅サロン",
+  "atmosphere_keywords": [
+    "おばあちゃんの家のような",
+    "季節の花",
+    "アロマ",
+    "女性専用",
+    "静かに過ごす"
+  ],
+  "hours_parking": "10:00-19:00 不定休（要再確認）",
+  "source_claims_requiring_safe_rewrite": [
+    "HEAVY: オーナー語りに『更年期/冷え/ホルモン/疲労/体質』→ demoでは一切不使用(OMIT)。改善/効果/妊活/痩身も不使用。relaxation・雰囲気(おばあちゃんの家/季節の花/アロマ)のみ"
+  ],
+  "demo_angle": "小郡の女性専用の自宅サロン。おばあちゃんの家のような場所で、よもぎ蒸しとリンパ、静かに過ごす時間を1ページで。",
+  "unknown_fields": [
+    "価格",
+    "実写真の権利",
+    "フルメニュー"
+  ],
+  "risk_flags": [
+    "更年期/冷え/ホルモン/疲労を効能化しない(全OMIT)→relaxation表現のみ",
+    "自宅サロン=住所は予約時",
+    "写真権利未確認→baseline素材"
+  ],
+  "demo_fit": "HIGH (weak ameba/IG, owner-led 自宅サロン)",
+  "grade": "B (claim-OMIT必須)",
+  "notes_for_Yu_review": "よもぎ/リンパの自宅サロン。demoは更年期/冷え/ホルモン等の健康訴求を全てOMITし、relaxation・雰囲気のみ。価格未取得→category-level。"
+}

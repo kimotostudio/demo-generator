@@ -1,0 +1,13 @@
+lead_id,source_strategy,business_name,category,city,area,website_url,instagram,contact_method,active_evidence,owner_personal,menu_evidence,photo_evidence,source_richness,demo_fit,risk,clean_A,rank,reason,demo_angle,missing_info,next_action
+kc01,portal_maps,赤ずきん(ドライヘッドスパ),ドライヘッドスパ,久留米市,三瀦町/東町,http://akazukin2018.com/,lit.link,form/tel/hotpepper,営業時間/住所/駐車場あり=active,元看護師ヘッドマイスター=owner明確,水油不使用オールハンド筋膜=明確,古民家=世界観強,4,5,low,4,A,"dry-head-spa(低claim)+築150年古民家=世界観強+独立owner+自前サイト弱(TLS不正)=demo-fit高。ただしTLSでfetch検証不可",古民家の静けさ×ドライヘッドスパ×予約導線を1ページで,メニュー詳細/価格/写真権利,verify(代替手段)+A候補
+kc02,weak_site,Pear/ペア,リンパ/よもぎ蒸し,久留米市,安武町(西鉄駅徒歩5分),https://pear-salon.jimdofree.com/,@pear_salon.hi_ko,form/LINE/IG,更新/campaign/予約=active,体験談owner=明確,リンパ/よもぎ/ヘッド/wax,写真ギャラリーあり,4,4,med,3,B,"active+写真+連絡多数=良。ただし妊活/不調framing→demoはrelaxation(リンパ/よもぎ)に限定しclaim-free。wax(脱毛)は副次",自宅サロンのあたたかさ×リンパ/よもぎ(妊活表現は使わない),価格/メニュー詳細,B(claim-free demo可)
+kc03,portal_maps,ドライヘッドスパ ねむの森,ドライヘッドスパ,久留米市,荘島町,,,tel(070-1257-8844),駅近/フリータイム空間=active,unknown,ヘッドスパ,unknown,2,4,low,2,B,"dry-head-spa・駅近・くつろぎ空間。自前サイト/写真/owner情報が未取得",駅近×施術後フリータイム×予約,own-site/IG/menu/photo,enrich(URL探索)
+kc04,portal_maps,Asuca黄土漢方蒸し専門店,よもぎ蒸し(黄土漢方),久留米市,西鉄久留米駅,,,reserve,一室貸切/完全個室=active,unknown,黄土漢方よもぎ蒸し,unknown,2,4,med,2,B,"完全個室プライベートよもぎ蒸し。漢方=軽いclaim注意。own-site未取得",完全個室の黄土よもぎ蒸し×プライベート予約,own-site/menu/photo/claims,enrich
+kc05,portal_maps,Lian(リアン),リンパ/よもぎ/ヘッドスパ,久留米市,—,,,—,専門店記載=active?,unknown,全身リンパ/ヘッドスパ/よもぎ,unknown,1,4,low,1,B,"リンパ&よもぎ蒸し専門店。情報薄・URL未取得",—,屋号確定/URL/menu,enrich
+kc06,portal_maps,ゆるりら・うるる,ドライヘッドスパ,久留米市,—,,,—,オールハンド人気=active?,unknown,ドライヘッドスパ,unknown,1,3,low,1,C,"オールハンド・dry-head-spa。情報薄",—,URL/詳細,record
+kc07,weak_site,ANA(福岡女性専用出張アロマ),アロマ(出張),福岡/久留米,天神/久留米,https://fukuoka-aroma.jimdosite.com/,,—,出張=active?,unknown,アロマ,unknown,2,1,low,1,Exclude,"出張(visiting)主体=店舗booking-LP適合低",—,—,EXCLUDE(visiting)
+kc08,weak_site,HALE/clary-clary,ヒーリング,久留米市,—,https://ameblo.jp/clary-clary/,,—,active,owner明確,よもぎ/子宮ヒーリング,—,2,2,high,0,Exclude,"女性性覚醒/子宮ヒーリング/自分開花=強スピリチュアル",—,—,EXCLUDE(spiritual)
+kc09,portal_maps,ReBe,エステ/痩身/美顔,久留米市,宮ノ陣,https://rebe-este.com/,,reserve,完全予約女性専用=active,unknown,痩身/美顔/リンパ,あり,3,3,high,0,Exclude,"痩身/美顔エステ=痩身・美容効果訴求リスク高",—,—,EXCLUDE(痩身)
+kc10,portal_maps,YOSAPARK OHANA,よもぎ/ハーブ,筑後/八女エリア,—,,,reserve,active,—,ハーブ水素ミスト,—,2,2,med,0,Exclude,"YOSAPARK=フランチャイズ/チェーン感",—,—,EXCLUDE(chain)
+kc11,weak_site,tinycell,アロマSCHOOL,久留米市,—,https://tinycell.jimdofree.com/,,—,active,—,メディカルアロマ講座,—,2,1,low,0,Exclude,"スクール主体",—,—,EXCLUDE(school)
+kc12,weak_site,Aroma Yuly,アロマ,要確認,—,https://aroma-yuly.jimdosite.com/,,—,unknown,unknown,アロマ,—,1,2,unknown,0,C,"jimdosite 403でfetch検証不可・地域未確認",—,region/verify,record(bot-block)

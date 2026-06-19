@@ -1,0 +1,48 @@
+{
+  "business_name": "medelu（メデル）",
+  "category": "よもぎ蒸し",
+  "city": "小郡市",
+  "area": "小郡市（プライベートサロン・住所は予約時案内）",
+  "source_urls": [
+    "Instagram @medelu_salon (verified, IG最終投稿 2026-05 = active)"
+  ],
+  "source_type": "Instagram only (no own site = demo-fit high)",
+  "source_confidence": "medium (IG verified active 2026-05; menu/1価格あり; 写真/フルメニュー未取得)",
+  "visible_services": [
+    "よもぎ蒸し",
+    "フットバス",
+    "リンパマッサージ",
+    "ハーブ(ハーブセラピー)"
+  ],
+  "prices_if_visible": "よもぎ蒸し 30分 3,500円（他未確認）",
+  "reservation_contact": {
+    "line": "yes",
+    "instagram": "@medelu_salon"
+  },
+  "owner_staff": "owner-led（1人運営の小さなサロン）",
+  "atmosphere_keywords": [
+    "プライベート",
+    "あたたかい",
+    "セルフケア",
+    "静かに過ごす",
+    "新しめのサロン"
+  ],
+  "hours_parking": "未確認（予約制）",
+  "source_claims_requiring_safe_rewrite": [
+    "claim none。relaxation/yomogi表現のみ。改善/効果/妊活/痩身は不使用"
+  ],
+  "demo_angle": "小郡の小さなプライベートサロン。よもぎ蒸しで、自分をいたわる静かな時間を1ページで。",
+  "unknown_fields": [
+    "自前サイト(なし)",
+    "フルメニュー/料金",
+    "実写真の権利"
+  ],
+  "risk_flags": [
+    "claim-free維持",
+    "IGのみ→予約導線はLINE中心",
+    "写真権利未確認→baseline素材"
+  ],
+  "demo_fit": "HIGH (IG active 2026-05, owner-led, no own LP)",
+  "grade": "A",
+  "notes_for_Yu_review": "IG活動2026-05で最も鮮度が高い。claim-free。menu/1価格あり。自前サイト無し=demo-fit。"
+}

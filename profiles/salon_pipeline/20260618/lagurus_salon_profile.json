@@ -1,0 +1,46 @@
+{
+  "business_name": "Lagurus（ラグラス）",
+  "category": "ドライヘッドスパ / アロマ",
+  "city": "鳥栖市",
+  "area": "鳥栖市（個室・駐車場あり・住所は予約時案内）",
+  "source_urls": [
+    "Instagram @salonlagurus.tosu",
+    "HotPepper slnH000483809"
+  ],
+  "source_type": "IG + HotPepper (no own LP = demo-fit)",
+  "source_confidence": "medium-high (HotPepper menu/prices + 4.95/66 reviews + IG active; 2019開業)",
+  "visible_services": [
+    "ドライヘッドスパ（デコルテ込）",
+    "アロマ"
+  ],
+  "prices_if_visible": "ドライヘッドスパ(デコルテ)40分 ¥3,500 / アロマ 90分 ¥4,950",
+  "reservation_contact": {
+    "hotpepper": "slnH000483809 (online booking)",
+    "instagram": "@salonlagurus.tosu"
+  },
+  "owner_staff": "1人運営の個室プライベートサロン（1 staff/1 bed、2019開業）女性専用",
+  "atmosphere_keywords": [
+    "個室",
+    "プライベート",
+    "静かに頭を休める",
+    "女性専用",
+    "落ち着き"
+  ],
+  "hours_parking": "駐車場あり・当日予約可（要再確認）",
+  "source_claims_requiring_safe_rewrite": [
+    "HotPepperの訴求に『小顔/たるみ/眼精疲労』→ demoでは一切不使用(OMIT)。改善/効果/不眠も不使用。ドライヘッドスパ/アロマ=relaxation表現のみ"
+  ],
+  "demo_angle": "鳥栖の女性専用・個室のプライベートサロン。ドライヘッドスパとアロマで、静かに頭を休める時間を1ページで。",
+  "unknown_fields": [
+    "実写真の権利",
+    "営業時間詳細"
+  ],
+  "risk_flags": [
+    "小顔/たるみ/眼精疲労は完全OMIT→relaxation表現のみ",
+    "HotPepper/IGのみ=自前LP無し=demo-fit",
+    "写真権利未確認→baseline素材"
+  ],
+  "demo_fit": "HIGH (no own LP, owner-led 個室, clear menu/prices)",
+  "grade": "B (claim-OMIT必須)",
+  "notes_for_Yu_review": "個室ドライヘッドスパ/アロマ・menu/価格clean。demoは小顔/たるみ/眼精疲労を全OMITしrelaxationのみ。価格(¥3,500/¥4,950)はheadspa/aroma用でclean→掲載可。"
+}

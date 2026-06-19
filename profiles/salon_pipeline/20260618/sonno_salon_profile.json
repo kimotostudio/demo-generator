@@ -1,0 +1,46 @@
+{
+  "business_name": "Sonno（ソンノ）",
+  "category": "ドライヘッドスパ",
+  "city": "久留米市",
+  "area": "久留米市（予約制）",
+  "source_urls": [
+    "Instagram @sonno_221022 (IG最終投稿 2026-01)",
+    "https://sonno-105792.square.site/ (own Square site, generic=demo-fit)"
+  ],
+  "source_type": "Instagram + Square site (generic)",
+  "source_confidence": "medium-high (IG active + own Square site w/ menu+prices)",
+  "visible_services": [
+    "あたまほぐし",
+    "癒しアロマヘッドスパ",
+    "プラズマトリートメント"
+  ],
+  "prices_if_visible": "あたまほぐし 6,600円 / アロマヘッドスパ 80分 7,150円",
+  "reservation_contact": {
+    "form": "yes (Square)",
+    "instagram": "@sonno_221022"
+  },
+  "owner_staff": "owner-led",
+  "atmosphere_keywords": [
+    "雲/ドリーミー",
+    "眠り(sleep)に寄せた世界観",
+    "静かに頭を休める",
+    "癒し"
+  ],
+  "hours_parking": "未確認（予約制）",
+  "source_claims_requiring_safe_rewrite": [
+    "claim none。'眠り/癒し/ほぐす'のrelaxation表現のみ。改善/効果/不眠が治る等は不使用"
+  ],
+  "demo_angle": "久留米の、眠りに寄り添うドライヘッドスパ。雲のように静かに頭を休める時間を1ページで。",
+  "unknown_fields": [
+    "実写真の権利",
+    "フル料金"
+  ],
+  "risk_flags": [
+    "claim-free維持(不眠/改善は出さない)",
+    "Square site=汎用→demo-fit",
+    "写真権利未確認→baseline素材"
+  ],
+  "demo_fit": "HIGH (own Square site generic + IG active + clear menu/prices)",
+  "grade": "A",
+  "notes_for_Yu_review": "自前Squareサイト+IG活動2026-01。menu/価格明確。claim-free(眠り=世界観であって効能訴求でない)。汎用サイト=demo-fit。"
+}

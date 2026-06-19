@@ -1,0 +1,47 @@
+{
+  "business_name": "osaji",
+  "category": "よもぎ蒸し",
+  "city": "八女市",
+  "area": "八女市（予約制・住所は予約時案内）",
+  "source_urls": [
+    "Instagram @osaji_yomogi (verified, 最終投稿 2026-02 = active)",
+    "LINE lin.ee/X53B30t"
+  ],
+  "source_type": "Instagram only (no own site = demo-fit)",
+  "source_confidence": "medium (IG active 2026-02; 価格未取得; 写真未取得)",
+  "visible_services": [
+    "よもぎ蒸し（漢方/ハーブの蒸し）",
+    "リフレクソロジー",
+    "足湯"
+  ],
+  "prices_if_visible": "未確認（予約先で確認）",
+  "reservation_contact": {
+    "line": "lin.ee/X53B30t",
+    "instagram": "@osaji_yomogi"
+  },
+  "owner_staff": "owner-led（1人運営）",
+  "atmosphere_keywords": [
+    "ハーブ/漢方の香り",
+    "静かに過ごす",
+    "あたたかい",
+    "ひとりの時間"
+  ],
+  "hours_parking": "未確認（予約制）",
+  "source_claims_requiring_safe_rewrite": [
+    "『漢方/薬膳/inner glow/vitality』は効能訴求にしない→香り/雰囲気/relaxation表現のみ。体質改善/代謝/温活/妊活/デトックスは不使用(OMIT)"
+  ],
+  "demo_angle": "八女の小さなよもぎ蒸しサロン。ハーブの香りに包まれ、静かに過ごすひとりの時間を1ページで。",
+  "unknown_fields": [
+    "価格",
+    "実写真の権利",
+    "フルメニュー"
+  ],
+  "risk_flags": [
+    "漢方/薬膳→効能claim化しない(OMIT)",
+    "IGのみ→予約はLINE中心",
+    "写真権利未確認→baseline素材"
+  ],
+  "demo_fit": "HIGH (IG active 2026-02, owner-led, no own LP)",
+  "grade": "A",
+  "notes_for_Yu_review": "IG活動2026-02。claim-free(漢方/薬膳は香り/雰囲気として扱い効能は出さない)。価格未取得→category-level。"
+}
