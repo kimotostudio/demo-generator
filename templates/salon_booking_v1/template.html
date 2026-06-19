@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{SALON_NAME}} | {{AREA}}の予約案内</title>
+    <meta name="description" content="{{SALON_NAME}}の雰囲気、メニュー、予約導線を1ページで見られるサンプルLPです。">
+    <style>
+        :root {
+            --ink: #23302d;
+            --muted: #66716c;
+            --paper: #fbfaf6;
+            --soft-green: #dfeade;
+            --sage: #6f8a7b;
+            --clay: #bd806a;
+            --mauve: #d9cad1;
+            --line: rgba(35, 48, 45, 0.14);
+            --white: #fff;
+            --shadow: 0 18px 50px rgba(45, 58, 54, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--paper);
+            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+            line-height: 1.8;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .notice {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: #23302d;
+            color: #fff;
+            padding: 10px 18px;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 42px;
+            z-index: 10;
+            background: rgba(251, 250, 246, 0.92);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 12px 20px;
+            border-radius: 6px;
+            border: 1px solid var(--ink);
+            background: var(--ink);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            box-shadow: 0 10px 24px rgba(35, 48, 45, 0.18);
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--ink);
+            box-shadow: none;
+        }
+
+        .section {
+            padding: 92px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section.alt {
+            background: var(--white);
+        }
+
+        .wrap {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: var(--clay);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 22px;
+            font-size: clamp(36px, 6vw, 74px);
+            line-height: 1.12;
+            letter-spacing: 0;
+        }
+
+        h2 {
+            margin-bottom: 18px;
+            font-size: clamp(28px, 4vw, 44px);
+            line-height: 1.25;
+            letter-spacing: 0;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        .lead {
+            max-width: 740px;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .hero {
+            min-height: calc(100vh - 114px);
+            display: grid;
+            align-items: center;
+            padding: 58px 0 76px;
+            background:
+                linear-gradient(90deg, rgba(251, 250, 246, 0.94) 0%, rgba(251, 250, 246, 0.76) 48%, rgba(251, 250, 246, 0.18) 100%),
+                url("{{HERO_IMAGE}}") center / cover no-repeat;
+        }
+
+        .hero-grid {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.72fr);
+            gap: 48px;
+            align-items: end;
+        }
+
+        .hero-panel {
+            max-width: 720px;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0 0 28px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .hero-meta li {
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.75);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .hero-card {
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .grid-2,
+        .grid-3 {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .card {
+            height: 100%;
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--white);
+        }
+
+        .card.tint {
+            background: linear-gradient(135deg, var(--soft-green), #fff 72%);
+        }
+
+        .card p:last-child,
+        .profile-copy p:last-child,
+        .booking-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .menu-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 16px;
+            padding: 22px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .menu-item:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .price {
+            color: var(--clay);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 14px;
+            counter-reset: step;
+        }
+
+        .step {
+            min-height: 180px;
+            padding: 22px 18px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--paper);
+            counter-increment: step;
+        }
+
+        .step::before {
+            content: "0" counter(step);
+            display: inline-flex;
+            margin-bottom: 18px;
+            color: var(--clay);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+
+        .profile {
+            display: grid;
+            grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.25fr);
+            gap: 36px;
+            align-items: center;
+        }
+
+        .profile-photo {
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--mauve);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+        }
+
+        .quote {
+            margin: 28px 0;
+            padding: 22px 24px;
+            border-left: 4px solid var(--sage);
+            background: var(--soft-green);
+            font-size: 18px;
+        }
+
+        .placeholder {
+            border-style: dashed;
+            background: #f8f4f0;
+        }
+
+        .placeholder-label {
+            display: inline-flex;
+            margin-bottom: 10px;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: var(--ink);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 0.75fr);
+            gap: 26px;
+        }
+
+        .info-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-top: 1px solid var(--line);
+        }
+
+        .info-list li {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 16px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .info-list span {
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        .map-box {
+            min-height: 280px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background:
+                linear-gradient(135deg, rgba(111, 138, 123, 0.28), rgba(217, 202, 209, 0.38)),
+                var(--white);
+            color: var(--muted);
+            text-align: center;
+            padding: 24px;
+        }
+
+        .booking-box {
+            padding: 36px;
+            border-radius: 8px;
+            background: var(--ink);
+            color: var(--white);
+        }
+
+        .booking-box .lead {
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .booking-box .button {
+            border-color: var(--white);
+            background: var(--white);
+            color: var(--ink);
+        }
+
+        footer {
+            padding: 34px 0;
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 13px;
+        }
+
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 900px) {
+            .site-header {
+                top: 40px;
+            }
+
+            .nav {
+                min-height: auto;
+                padding: 16px 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-grid,
+            .grid-2,
+            .grid-3,
+            .profile,
+            .access-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 72px;
+                background:
+                    linear-gradient(180deg, rgba(251, 250, 246, 0.88), rgba(251, 250, 246, 0.98)),
+                    url("{{HERO_IMAGE}}") center / cover no-repeat;
+            }
+
+            .hero-card {
+                padding: 22px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                min-height: auto;
+            }
+
+            .section {
+                padding: 66px 0;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .notice {
+                font-size: 12px;
+                line-height: 1.5;
+            }
+
+            .site-header {
+                top: 54px;
+            }
+
+            .brand {
+                white-space: normal;
+            }
+
+            .menu-item,
+            .info-list li {
+                grid-template-columns: 1fr;
+            }
+
+            .price {
+                white-space: normal;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="notice">FICTIONAL SAMPLE - 架空サロンの品質確認用デモです。実在店舗の情報ではありません。</div>
+
+    <header class="site-header">
+        <div class="nav">
+            <a class="brand" href="#top">{{SALON_NAME}}</a>
+            <nav class="nav-links" aria-label="ページ内ナビゲーション">
+                <a href="#for">こんな方へ</a>
+                <a href="#menu">メニュー</a>
+                <a href="#owner">オーナー</a>
+                <a href="#booking">予約</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 01 ファーストビュー -->
+    <main id="top">
+        <section class="hero" data-block="01-first-view" aria-labelledby="hero-title">
+            <div class="hero-grid">
+                <div class="hero-panel">
+                    <p class="eyebrow">01 First View / {{AREA}}</p>
+                    <h1 id="hero-title">{{SALON_NAME}}</h1>
+                    <p class="lead">{{AREA}}で、{{TARGET_CUSTOMER}}に向けた{{ATMOSPHERE}}のプライベートサロン。{{MENU_NAME}}を中心に、初めての方にも流れが伝わる予約ページです。</p>
+                    <ul class="hero-meta" aria-label="サロンの特徴">
+                        <li>{{PHOTO_TONE}}</li>
+                        <li>{{PRICE_RANGE}}</li>
+                        <li>{{BOOKING_ROUTE}}</li>
+                    </ul>
+                    <div class="cta-row">
+                        <a class="button" href="#booking">{{FIRST_VISIT_ROUTE}}</a>
+                        <a class="button secondary" href="#menu">メニューを見る</a>
+                    </div>
+                </div>
+                <aside class="hero-card" aria-label="このサンプルについて">
+                    <p class="eyebrow">Respectful Sketch</p>
+                    <p>{{SALON_NAME}}らしい静けさと、予約前に知りたい情報を1ページにまとめた構成です。掲載内容は架空データで、実運用前に店舗側の確認が必要です。</p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 02 こんな方へ -->
+        <section id="for" class="section alt" data-block="02-for">
+            <div class="wrap">
+                <p class="eyebrow">02 For</p>
+                <h2>こんな方へ</h2>
+                <p class="lead">{{TARGET_CUSTOMER}}が、予約前に雰囲気や流れを落ち着いて確認できるようにした案内です。</p>
+                <div class="grid-3">
+                    <article class="card tint">
+                        <h3>静かな時間を取りたい方</h3>
+                        <p>忙しい日の合間に、会話量や過ごし方を相談しながら、ゆっくり過ごしたい方へ。</p>
+                    </article>
+                    <article class="card tint">
+                        <h3>初めての場所は慎重に選びたい方</h3>
+                        <p>来店前にメニュー、価格、予約方法、当日の流れをひと通り確認したい方へ。</p>
+                    </article>
+                    <article class="card tint">
+                        <h3>自分のペースを大切にしたい方</h3>
+                        <p>強い表現よりも、穏やかな案内と丁寧な対応を重視したい方へ。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03 選ばれる理由 -->
+        <section class="section" data-block="03-reasons">
+            <div class="wrap">
+                <p class="eyebrow">03 Reasons</p>
+                <h2>選ばれる理由</h2>
+                <div class="grid-3">
+                    <article class="card">
+                        <h3>完全個室の落ち着いた空間</h3>
+                        <p>{{ATMOSPHERE}}の空間づくりで、周りを気にせず過ごせます。</p>
+                    </article>
+                    <article class="card">
+                        <h3>はじめに丁寧にお話を伺います</h3>
+                        <p>その日の気分、苦手なこと、過ごし方の希望を確認してからメニューへ進みます。</p>
+                    </article>
+                    <article class="card">
+                        <h3>{{STRENGTHS}}</h3>
+                        <p>{{SALON_NAME}}の大切にしている雰囲気が、予約前にも伝わるように整理しています。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 メニュー -->
+        <section id="menu" class="section alt" data-block="04-menu">
+            <div class="wrap">
+                <p class="eyebrow">04 Menu</p>
+                <h2>メニュー</h2>
+                <p class="lead">初めての方が選びやすいように、入口メニューと通常メニューを分けて掲載します。</p>
+                <div class="menu-list">
+                    <article class="menu-item">
+                        <div>
+                            <h3>{{MENU_NAME}}</h3>
+                            <p>初回の方に向けた、サロンの雰囲気を知りやすい基本メニューです。</p>
+                        </div>
+                        <p class="price">{{FIRST_VISIT_PRICE}}</p>
+                    </article>
+                    <article class="menu-item">
+                        <div>
+                            <h3>{{REGULAR_MENU_NAME}}</h3>
+                            <p>慣れてきた方向けに、ゆっくり過ごせる時間を確保したメニューです。</p>
+                        </div>
+                        <p class="price">{{REGULAR_PRICE}}</p>
+                    </article>
+                    <article class="menu-item">
+                        <div>
+                            <h3>{{SEASONAL_MENU_NAME}}</h3>
+                            <p>季節や気分に合わせて、香りや過ごし方を相談できるメニューです。</p>
+                        </div>
+                        <p class="price">{{SEASONAL_PRICE}}</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 施術の流れ -->
+        <section class="section" data-block="05-flow">
+            <div class="wrap">
+                <p class="eyebrow">05 Flow</p>
+                <h2>当日の流れ</h2>
+                <div class="steps">
+                    <article class="step">
+                        <h3>予約</h3>
+                        <p>{{BOOKING_ROUTE}}から希望日時をお知らせください。</p>
+                    </article>
+                    <article class="step">
+                        <h3>来店</h3>
+                        <p>{{AREA}}の静かな場所でお迎えします。</p>
+                    </article>
+                    <article class="step">
+                        <h3>カウンセリング</h3>
+                        <p>その日の希望、苦手なこと、過ごし方を確認します。</p>
+                    </article>
+                    <article class="step">
+                        <h3>施術</h3>
+                        <p>無理のない範囲で、ゆっくり過ごせる時間を整えます。</p>
+                    </article>
+                    <article class="step">
+                        <h3>アフター</h3>
+                        <p>次回予約や自宅での過ごし方は、必要な方にだけご案内します。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 オーナープロフィール -->
+        <section id="owner" class="section alt" data-block="06-owner">
+            <div class="wrap profile">
+                <figure class="profile-photo">
+                    <img src="{{OWNER_IMAGE}}" alt="{{OWNER_NAME}}の架空プロフィール画像">
+                </figure>
+                <div class="profile-copy">
+                    <p class="eyebrow">06 Owner Profile</p>
+                    <h2>{{OWNER_NAME}}</h2>
+                    <p class="lead">{{OWNER_PROFILE}}</p>
+                    <blockquote class="quote">{{OWNER_WORDS}}</blockquote>
+                    <p>このページでは、オーナーの人柄と予約前の安心感が伝わるように、プロフィールを大きく扱っています。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07 お客様の声 -->
+        <section class="section" data-block="07-voices">
+            <div class="wrap">
+                <p class="eyebrow">07 Voices</p>
+                <h2>お客様の声</h2>
+                <p class="lead">このブロックは実データと掲載許可がある場合だけ使用します。現在は品質確認用のPLACEHOLDERです。</p>
+                <div class="grid-3">
+                    <article class="card placeholder">
+                        <span class="placeholder-label">PLACEHOLDER 01</span>
+                        <p>掲載前に、実際のお客様から許可を得た文章へ差し替えてください。</p>
+                    </article>
+                    <article class="card placeholder">
+                        <span class="placeholder-label">PLACEHOLDER 02</span>
+                        <p>年代、来店目的、本文の公開可否を確認してから掲載します。</p>
+                    </article>
+                    <article class="card placeholder">
+                        <span class="placeholder-label">PLACEHOLDER 03</span>
+                        <p>許可のない文章や想像で作った感想は掲載しません。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08 アクセス -->
+        <section class="section alt" data-block="08-access">
+            <div class="wrap access-grid">
+                <div>
+                    <p class="eyebrow">08 Access</p>
+                    <h2>アクセス</h2>
+                    <ul class="info-list">
+                        <li><span>地域</span>{{AREA}}</li>
+                        <li><span>最寄り</span>{{STATION_INFO}}</li>
+                        <li><span>駐車場</span>{{PARKING_INFO}}</li>
+                        <li><span>営業時間</span>{{OPEN_HOURS}}</li>
+                        <li><span>予約導線</span>{{BOOKING_ROUTE}}</li>
+                    </ul>
+                </div>
+                <div class="map-box" aria-label="地図プレースホルダー">
+                    <p>MAP PLACEHOLDER<br>{{AREA}}<br>実運用時は正しい地図情報に差し替え</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09 最終CTA -->
+        <section id="booking" class="section" data-block="09-final-cta">
+            <div class="wrap">
+                <div class="booking-box">
+                    <p class="eyebrow">09 Booking</p>
+                    <h2>初めての方へ</h2>
+                    <p class="lead">{{FIRST_VISIT_ROUTE}}。予約前に聞いておきたいことがあれば、{{BOOKING_ROUTE}}から短く送っていただけます。</p>
+                    <div class="cta-row">
+                        <a class="button" href="{{BOOKING_URL}}">{{BOOKING_BUTTON_LABEL}}</a>
+                        <a class="button secondary" href="#menu">メニューを見直す</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span>{{SALON_NAME}} / FICTIONAL SAMPLE</span>
+            <span>{{YEAR}} Quality proof mock. No real business data.</span>
+        </div>
+    </footer>
+</body>
+</html>

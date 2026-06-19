@@ -1,0 +1,86 @@
+{
+  "theme": "warm-natural",
+  "style_theme": "lea-editorial",
+  "typography_variant": "C",
+  "ui_variant": "soft-surface",
+  "output_slug": "akazukin",
+  "brand": "ドライヘッドスパ 赤ずきん",
+  "brand_lockup": false,
+  "top_brand": "赤ずきん",
+  "top_label": "赤ずきん",
+  "locality": "久留米・三瀦町",
+  "category_label": "久留米 ・ ドライヘッドスパ ・ 完全予約",
+  "hero_image": "assets/atmo_warm_treatment.jpg",
+  "hero_treatment": "light",
+  "hero_class": "copy-focus brand-focus lea-v4 lea-v6 lea-v8-optical",
+  "hero_position": "55% 50%",
+  "hero_mobile_position": "47% 50%",
+  "hero_lines": ["静かな古民家で、", "頭をほどく時間。"],
+  "hero_sub": "築150年の古民家で営む、\nドライヘッドスパ。",
+  "hero_meta": [],
+  "hero_cta_note": "空き状況や詳しい場所は、ご予約前にお伝えします。",
+  "cta_label": "予約方法を見る",
+  "subtle_labels": true,
+  "show_draft_note": true,
+  "draft_note": "PRIVATE DRAFT / noindex / pre-send / sent=0",
+  "footer_note": "private draft・noindex・sent=0",
+  "intro_kick": "はじめての方へ",
+  "intro": "水もオイルも使わない、オールハンドの頭の施術。",
+  "intro_body": "初めての方にも、雰囲気と予約の流れが伝わるように。静かな時間を予約前に想像できる、確認用の1ページです。",
+  "band_image": "assets/light_soft_curtain.jpg",
+  "band_treatment": "plain lea-band",
+  "band_position": "center center",
+  "menu_kick": "メニュー",
+  "menu_intro": "実際の内容に合わせて差し替える前提で、選びやすい入口だけを並べています。",
+  "menu": [
+    {
+      "index": "01",
+      "name": "ドライヘッドスパ",
+      "price": null,
+      "detail": "水もオイルも使わない、オールハンドの頭の施術です。"
+    },
+    {
+      "index": "02",
+      "name": "初めての方の時間",
+      "price": null,
+      "detail": "予約前に流れを知りたい方へ。来店前の確認がしやすい入口です。"
+    },
+    {
+      "index": "03",
+      "name": "ゆっくりの時間",
+      "price": null,
+      "detail": "予定に合わせて、静かに過ごすための時間です。"
+    }
+  ],
+  "menu_note": "料金・所要時間は実際の内容に差し替え",
+  "flow_kick": "予約から当日まで",
+  "flow": [
+    {"label": "お問い合わせ", "text": "LINE・お電話・Instagram・ホットペッパーから、空き状況を確認します。"},
+    {"label": "日程のご相談", "text": "希望日時と、初めての方が知りたいことを短く伝えられます。"},
+    {"label": "ご来店", "text": "駐車場は2台分。詳しい案内は予約時に確認できます。"},
+    {"label": "当日の施術", "text": "水もオイルも使わず、オールハンドで進めます。"}
+  ],
+  "story_kick": "このサロンについて",
+  "story": "築150年の古民家で、経歴のある施術者が、ひとりずつ丁寧に。にぎやかな場所よりも、静かな雰囲気を大切にしたい方へ向けた下書きです。",
+  "story_image": "assets/atmo_warm_coffee.jpg",
+  "story_position": "55% center",
+  "access_intro": "予約方法と来店前の確認事項を、1ページの下部にまとめています。",
+  "access": [
+    ["エリア", "久留米市三瀦町"],
+    ["予約・連絡", "LINE・お電話・Instagram・ホットペッパー"],
+    ["駐車場", "2台"],
+    ["営業情報", "営業時間は要確認"]
+  ],
+  "res_line": "まずは、空き状況だけでも。",
+  "reservation_methods": ["LINE", "電話", "Instagram", "ホットペッパー"],
+  "res_note": "このデモは確認用です。実際の予約先は公開前に差し替えます。",
+  "reservation_url": "#access",
+  "sample_lp_note": "SAMPLE LPです。掲載内容は公開前の確認用です。",
+  "demo_notes_lead": "以下は、実際のお店の内容に差し替える前提の項目です。",
+  "demo_notes": [
+    "料金・所要時間は実際の内容に差し替え",
+    "営業時間は実際の案内に差し替え",
+    "写真は権利確認後に実写真へ差し替え可能",
+    "このページは非公開確認用で、送信も公開もしていません"
+  ]
+}

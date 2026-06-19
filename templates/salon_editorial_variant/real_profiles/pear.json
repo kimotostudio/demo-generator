@@ -1,0 +1,88 @@
+{
+  "theme": "warm-natural",
+  "style_theme": "lea-editorial",
+  "typography_variant": "C",
+  "ui_variant": "soft-surface",
+  "output_slug": "pear",
+  "brand": "Pear",
+  "brand_lockup": true,
+  "brand_kicker": "Private Salon",
+  "brand_mark": "Pear",
+  "top_brand": "Pear",
+  "top_label": "Pear",
+  "locality": "久留米・安武町",
+  "category_label": "久留米 ・ リンパ／よもぎ蒸し ・ 女性専用",
+  "hero_image": "assets/atmo_clean_plants.jpg",
+  "hero_treatment": "light",
+  "hero_class": "copy-focus brand-focus lea-v4 lea-v6 lea-v8-optical",
+  "hero_position": "48% 50%",
+  "hero_mobile_position": "41% 50%",
+  "hero_lines": ["静かに過ごせる、", "小さな自宅サロン。"],
+  "hero_sub": "西鉄久留米駅すぐ、女性専用の\nリンパとよもぎ蒸し。",
+  "hero_meta": [],
+  "hero_cta_note": "予約方法や詳しい場所は、ご予約前に確認できます。",
+  "cta_label": "予約方法を見る",
+  "subtle_labels": true,
+  "show_draft_note": true,
+  "draft_note": "PRIVATE DRAFT / noindex / pre-send / sent=0",
+  "footer_note": "private draft・noindex・sent=0",
+  "intro_kick": "はじめての方へ",
+  "intro": "リンパとよもぎ蒸しで、ゆっくり過ごせる時間を。",
+  "intro_body": "初めての方にも、予約の流れと雰囲気が伝わるように。女性専用の小さなサロンとして、予約前に見やすい確認用ページです。",
+  "band_image": "assets/atmo_warm_treatment.jpg",
+  "band_treatment": "plain lea-band",
+  "band_position": "center center",
+  "menu_kick": "メニュー",
+  "menu_intro": "実際の内容に合わせて差し替える前提で、入口になるメニューだけを並べています。",
+  "menu": [
+    {
+      "index": "01",
+      "name": "リンパケア",
+      "price": null,
+      "detail": "女性専用の小さなサロンで、ゆっくり過ごすための時間です。"
+    },
+    {
+      "index": "02",
+      "name": "よもぎ蒸し",
+      "price": null,
+      "detail": "落ち着いた空間で、ひと息つく時間として案内します。"
+    },
+    {
+      "index": "03",
+      "name": "ヘッドケア",
+      "price": null,
+      "detail": "予約時に内容を確認しながら選べる、短く見やすい入口です。"
+    }
+  ],
+  "menu_note": "料金・所要時間は実際の内容に差し替え",
+  "flow_kick": "予約から当日まで",
+  "flow": [
+    {"label": "お問い合わせ", "text": "予約フォーム・LINE・Instagramから、空き状況を確認します。"},
+    {"label": "日程のご相談", "text": "希望日時と、初めての方が知りたいことを短く伝えられます。"},
+    {"label": "場所の確認", "text": "詳しい場所は予約前に確認できます。"},
+    {"label": "当日の時間", "text": "予約時間に合わせて、小さな自宅サロンで過ごします。"}
+  ],
+  "story_kick": "このサロンについて",
+  "story": "女性専用の小さなサロンとして、ひとりずつの時間を大切に。初めて見る方にも、雰囲気と予約先がすぐ伝わる下書きです。",
+  "story_image": "assets/atmo_warm_coffee.jpg",
+  "story_position": "54% center",
+  "access_intro": "予約方法と来店前の確認事項を、1ページの下部にまとめています。",
+  "access": [
+    ["エリア", "久留米市安武町 / 西鉄久留米駅すぐ"],
+    ["予約・連絡", "予約フォーム・LINE・Instagram"],
+    ["対象", "女性専用"],
+    ["営業情報", "空き状況は予約前に確認"]
+  ],
+  "res_line": "まずは、空き状況だけでも。",
+  "reservation_methods": ["予約フォーム", "LINE", "Instagram"],
+  "res_note": "このデモは確認用です。実際の予約先は公開前に差し替えます。",
+  "reservation_url": "#access",
+  "sample_lp_note": "SAMPLE LPです。掲載内容は公開前の確認用です。",
+  "demo_notes_lead": "以下は、実際のお店の内容に差し替える前提の項目です。",
+  "demo_notes": [
+    "料金・所要時間は実際の内容に差し替え",
+    "詳しい住所と予約先は実際の案内に差し替え",
+    "写真は権利確認後に実写真へ差し替え可能",
+    "このページは非公開確認用で、送信も公開もしていません"
+  ]
+}

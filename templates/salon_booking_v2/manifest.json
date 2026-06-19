@@ -1,0 +1,69 @@
+{
+  "template_id": "salon_booking_v2",
+  "purpose": "Review-gated personal salon proposal landing pages with variantA-level visual quality.",
+  "version": "2026-06-13",
+  "entry_file": "template.html",
+  "inherits_slot_contract_from": "salon_booking_v1",
+  "design_reference": "templates/variantA.html",
+  "required_slots": [
+    "SALON_NAME",
+    "AREA",
+    "MENU_NAME",
+    "ATMOSPHERE",
+    "OWNER_WORDS",
+    "PHOTO_TONE",
+    "BOOKING_ROUTE",
+    "PRICE_RANGE",
+    "TARGET_CUSTOMER",
+    "STRENGTHS",
+    "FIRST_VISIT_ROUTE"
+  ],
+  "additional_slots": [
+    "HERO_IMAGE",
+    "OWNER_IMAGE",
+    "OWNER_NAME",
+    "OWNER_PROFILE",
+    "FIRST_VISIT_PRICE",
+    "REGULAR_MENU_NAME",
+    "REGULAR_PRICE",
+    "SEASONAL_MENU_NAME",
+    "SEASONAL_PRICE",
+    "STATION_INFO",
+    "PARKING_INFO",
+    "OPEN_HOURS",
+    "BOOKING_URL",
+    "BOOKING_BUTTON_LABEL",
+    "YEAR"
+  ],
+  "blocks": [
+    "01-first-view",
+    "02-for",
+    "03-reasons",
+    "04-menu",
+    "05-flow",
+    "06-owner",
+    "07-voices",
+    "08-access",
+    "09-final-cta"
+  ],
+  "quality_signals": [
+    "Two-font design system using sans and serif stacks.",
+    "Six or more typography size/weight steps.",
+    "Gradient first view with layered depth.",
+    "Layered box shadows on cards, image slots, and final CTA.",
+    "Smooth transitions on navigation, buttons, cards, menu rows, and reveal states.",
+    "Subtle keyframes for first-view reveal and floating review note.",
+    "IntersectionObserver reveal behavior without external scripts.",
+    "Mobile-first responsive grids with tablet and phone breakpoints."
+  ],
+  "guardrail_summary": [
+    "Use only soft, optional wording.",
+    "Do not promise outcomes, performance, bookings, sales, ranking, or customer acquisition.",
+    "Do not make medical, body-shape, or efficacy assertions.",
+    "Do not criticize the recipient's current site, booking flow, copy, tools, or competitors.",
+    "Use customer voices only when real permissioned data exists; otherwise keep PLACEHOLDER labels.",
+    "Label all image slots as samples requiring replacement after photo permission.",
+    "Keep the proposal draft label visible: 提案サンプル(ドラフト・未送信)."
+  ],
+  "sample_status": "Five Kumamoto review demos are rendered in samples/kumamoto_review_20260613/."
+}

@@ -1,0 +1,70 @@
+{
+  "theme": "clean-minimal",
+  "brand": "凪 ‑ nagi ‑",
+  "locality": "松本",
+  "category_label": "ヘッドスパ ／ フェイシャル　松本",
+  "hero_image": "assets/interior_clean_bright.jpg",
+  "hero_treatment": "plain",
+  "hero_lines": [
+    "眠ってしまっても、",
+    "いい時間です。"
+  ],
+  "hero_sub": "松本駅から歩いて、白とひかりの小さな部屋。",
+  "cta_label": "予約・問い合わせ",
+  "intro_kick": "はじめに",
+  "intro": "施術中に眠ってしまう方がほとんどです。起こさずに、そのままにしておきます。",
+  "intro_body": "予約はInstagramのメッセージから。やり取りの雰囲気で、合いそうか見ていただけます。",
+  "band_image": "assets/atmo_clean_plants.jpg",
+  "band_treatment": "plain",
+  "menu_kick": "メニュー",
+  "menu": [
+    {
+      "name": "ドライヘッドスパ",
+      "detail": "40分 ／ 乾いた髪のまま",
+      "price": null
+    },
+    {
+      "name": "フェイシャル＋ヘッド",
+      "detail": "70分",
+      "price": null
+    }
+  ],
+  "flow_kick": "ご来店の流れ",
+  "flow": [
+    {
+      "label": "ご予約",
+      "text": "InstagramのDMから、希望の曜日と時間帯を。"
+    },
+    {
+      "label": "ご来店",
+      "text": "松本駅お城口から徒歩6分。手ぶらでどうぞ。"
+    },
+    {
+      "label": "おはなし",
+      "text": "その日の頭の重さや、避けたいことだけ先に。"
+    },
+    {
+      "label": "お時間",
+      "text": "あとは、できるだけ静かに過ごしていただきます。"
+    }
+  ],
+  "story_kick": "この部屋について",
+  "story": "席はひとつだけ。同じ時間に他のお客様はいません。白い壁と、窓の植物と、少しの音だけの部屋です。",
+  "access": [
+    [
+      "最寄り",
+      "松本駅お城口 徒歩6分"
+    ],
+    [
+      "営業時間",
+      "10:00–20:00　不定休"
+    ],
+    [
+      "ご予約",
+      "Instagram DM"
+    ]
+  ],
+  "res_line": "まずは、軽い気持ちで。",
+  "res_note": "Instagramのメッセージで承っています。",
+  "website_url": "https://www.instagram.com/example_nagi"
+}

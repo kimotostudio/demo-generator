@@ -1,0 +1,5 @@
+{
+  "extends": "lea.json",
+  "output_slug": "lea_typo_C",
+  "typography_variant": "C"
+}

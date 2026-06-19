@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{SALON_NAME}} | {{AREA}}の予約案内サンプル</title>
+    <meta name="description" content="{{SALON_NAME}}の雰囲気、メニュー、予約導線を1ページで確認できる提案サンプルです。">
+    <style>
+        :root {
+            --ink: #24302d;
+            --ink-soft: #43524d;
+            --muted: #6e7a75;
+            --paper: #fbfaf6;
+            --paper-deep: #f2eee7;
+            --white: #ffffff;
+            --line: rgba(36, 48, 45, 0.12);
+            --line-strong: rgba(36, 48, 45, 0.22);
+            --sage: #6f8a7b;
+            --sage-soft: #dfeade;
+            --rose: #d8c6cf;
+            --clay: #bd806a;
+            --clay-dark: #956451;
+            --gold: #c7a462;
+            --shadow-soft: 0 18px 55px rgba(36, 48, 45, 0.10);
+            --shadow-depth: 0 28px 90px rgba(36, 48, 45, 0.15);
+            --shadow-line: 0 1px 0 rgba(255, 255, 255, 0.75) inset;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "YuGothic", sans-serif;
+            --font-serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --wrap: min(1120px, calc(100% - 40px));
+            --section-space: 108px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(251, 250, 246, 0.92)),
+                var(--paper);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.9;
+            letter-spacing: 0;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                linear-gradient(120deg, rgba(223, 234, 222, 0.52), rgba(255, 255, 255, 0) 42%),
+                linear-gradient(300deg, rgba(216, 198, 207, 0.36), rgba(255, 255, 255, 0) 46%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.30), rgba(242, 238, 231, 0.72));
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        p,
+        h1,
+        h2,
+        h3,
+        figure,
+        blockquote {
+            margin: 0;
+        }
+
+        .notice {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            display: flex;
+            justify-content: center;
+            padding: 10px 18px;
+            color: rgba(255, 255, 255, 0.92);
+            background: linear-gradient(90deg, var(--ink), #31443f);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+            box-shadow: 0 8px 30px rgba(36, 48, 45, 0.14);
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.55;
+            text-align: center;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 43px;
+            z-index: 20;
+            background: rgba(251, 250, 246, 0.82);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(24px) saturate(155%);
+            -webkit-backdrop-filter: blur(24px) saturate(155%);
+            transition: background 0.45s var(--ease), box-shadow 0.45s var(--ease), transform 0.45s var(--ease);
+        }
+
+        .site-header.is-scrolled {
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: 0 12px 44px rgba(36, 48, 45, 0.08);
+        }
+
+        .nav {
+            width: var(--wrap);
+            min-height: 76px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            max-width: 42%;
+            overflow: hidden;
+            color: var(--ink);
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0;
+            text-decoration: none;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            transition: color 0.3s ease, opacity 0.3s ease;
+        }
+
+        .brand:hover {
+            color: var(--clay-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--ink-soft);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 10px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+            background: rgba(111, 138, 123, 0.10);
+            transform: translateY(-1px);
+        }
+
+        .button {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 13px 22px;
+            overflow: hidden;
+            border: 1px solid rgba(36, 48, 45, 0.88);
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--ink), #354640);
+            color: var(--white);
+            box-shadow: 0 14px 36px rgba(36, 48, 45, 0.18), var(--shadow-line);
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s ease, background 0.35s ease;
+        }
+
+        .button::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+            transform: translateX(-120%);
+            transition: transform 0.65s var(--ease);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 22px 58px rgba(36, 48, 45, 0.24), var(--shadow-line);
+        }
+
+        .button:hover::before {
+            transform: translateX(120%);
+        }
+
+        .button.secondary {
+            background: rgba(255, 255, 255, 0.52);
+            color: var(--ink);
+            border-color: var(--line-strong);
+            box-shadow: 0 10px 28px rgba(36, 48, 45, 0.08), var(--shadow-line);
+        }
+
+        .section {
+            position: relative;
+            padding: var(--section-space) 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section.alt {
+            background: rgba(255, 255, 255, 0.62);
+        }
+
+        .wrap {
+            width: var(--wrap);
+            margin: 0 auto;
+        }
+
+        .section-head {
+            max-width: 790px;
+            margin-bottom: 48px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            color: var(--clay-dark);
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 800;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 38px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--clay), rgba(189, 128, 106, 0));
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--ink);
+            font-family: var(--font-serif);
+            font-weight: 500;
+            line-height: 1.34;
+        }
+
+        h1 {
+            max-width: 780px;
+            font-size: 58px;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        h3 {
+            font-size: 21px;
+        }
+
+        .lead {
+            max-width: 760px;
+            color: var(--ink-soft);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 2;
+        }
+
+        .microcopy {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .hero {
+            position: relative;
+            min-height: calc(100vh - 119px);
+            display: grid;
+            align-items: center;
+            padding: 76px 0 86px;
+            overflow: hidden;
+            background:
+                linear-gradient(115deg, rgba(251, 250, 246, 0.98) 0%, rgba(251, 250, 246, 0.88) 42%, rgba(223, 234, 222, 0.62) 72%, rgba(216, 198, 207, 0.66) 100%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(242, 238, 231, 0.88));
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 80px),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 80px);
+            mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+            opacity: 0.45;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0;
+            height: 130px;
+            background: linear-gradient(180deg, rgba(251, 250, 246, 0), var(--paper));
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 1;
+            width: var(--wrap);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.78fr);
+            gap: 56px;
+            align-items: center;
+        }
+
+        .hero-copy {
+            animation: revealUp 0.95s var(--ease) 0.08s both;
+        }
+
+        .hero-kicker {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .hero-kicker li {
+            border: 1px solid rgba(36, 48, 45, 0.12);
+            border-radius: 8px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.60);
+            box-shadow: 0 8px 22px rgba(36, 48, 45, 0.06);
+            color: var(--ink-soft);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .hero-title {
+            margin-bottom: 26px;
+            text-wrap: balance;
+        }
+
+        .hero-lead {
+            margin-bottom: 34px;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 520px;
+            animation: revealUp 1s var(--ease) 0.24s both;
+        }
+
+        .image-stage {
+            position: absolute;
+            inset: 28px 0 0 34px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.70);
+            border-radius: 8px;
+            background:
+                linear-gradient(140deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.22)),
+                linear-gradient(135deg, rgba(223, 234, 222, 0.70), rgba(216, 198, 207, 0.55));
+            box-shadow: var(--shadow-depth);
+        }
+
+        .image-stage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.42;
+            mix-blend-mode: multiply;
+            filter: saturate(0.82) contrast(0.92);
+            transform: scale(1.02);
+        }
+
+        .image-stage::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(140deg, rgba(255, 255, 255, 0.18), rgba(36, 48, 45, 0.06)),
+                linear-gradient(0deg, rgba(251, 250, 246, 0.80), rgba(251, 250, 246, 0) 54%);
+        }
+
+        .image-caption {
+            position: absolute;
+            left: 0;
+            right: 34px;
+            bottom: 0;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: 0 18px 52px rgba(36, 48, 45, 0.13), var(--shadow-line);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .image-caption strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--ink);
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .image-caption span {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .hero-note {
+            position: absolute;
+            top: 0;
+            right: 16px;
+            max-width: 285px;
+            padding: 22px;
+            border: 1px solid rgba(36, 48, 45, 0.10);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: 0 18px 48px rgba(36, 48, 45, 0.12), var(--shadow-line);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            animation: floatSoft 5s ease-in-out infinite;
+        }
+
+        .hero-note p + p {
+            margin-top: 10px;
+        }
+
+        .grid-2,
+        .grid-3 {
+            display: grid;
+            gap: 22px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .card {
+            position: relative;
+            height: 100%;
+            padding: 30px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: 0 14px 42px rgba(36, 48, 45, 0.07), var(--shadow-line);
+            transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.45s ease, background 0.45s ease;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sage), var(--clay), var(--rose));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease);
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(36, 48, 45, 0.18);
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: 0 24px 70px rgba(36, 48, 45, 0.12), var(--shadow-line);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card h3 {
+            margin-bottom: 14px;
+        }
+
+        .card p {
+            color: var(--ink-soft);
+        }
+
+        .tone-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .tone-item {
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background:
+                linear-gradient(135deg, rgba(223, 234, 222, 0.62), rgba(255, 255, 255, 0.78)),
+                rgba(255, 255, 255, 0.70);
+            box-shadow: 0 10px 30px rgba(36, 48, 45, 0.06);
+        }
+
+        .tone-item b {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--ink);
+            font-family: var(--font-serif);
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .tone-item span {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .menu-list {
+            border-top: 1px solid var(--line);
+        }
+
+        .menu-item {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(150px, auto);
+            gap: 24px;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--line);
+            transition: padding-left 0.35s var(--ease), background 0.35s ease;
+        }
+
+        .menu-item:hover {
+            padding-left: 14px;
+            background: linear-gradient(90deg, rgba(223, 234, 222, 0.26), rgba(255, 255, 255, 0));
+        }
+
+        .menu-item h3 {
+            margin-bottom: 8px;
+        }
+
+        .price {
+            align-self: start;
+            color: var(--clay-dark);
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 14px;
+            counter-reset: step;
+        }
+
+        .step {
+            min-height: 210px;
+            padding: 24px 20px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(251, 250, 246, 0.86)),
+                var(--white);
+            box-shadow: 0 12px 36px rgba(36, 48, 45, 0.06), var(--shadow-line);
+            counter-increment: step;
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 55px rgba(36, 48, 45, 0.10), var(--shadow-line);
+        }
+
+        .step::before {
+            content: "0" counter(step);
+            display: inline-flex;
+            margin-bottom: 18px;
+            color: var(--clay-dark);
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .profile {
+            display: grid;
+            grid-template-columns: minmax(280px, 0.70fr) minmax(0, 1.30fr);
+            gap: 54px;
+            align-items: center;
+        }
+
+        .profile-photo {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.70);
+            border-radius: 8px;
+            background:
+                linear-gradient(135deg, rgba(216, 198, 207, 0.52), rgba(223, 234, 222, 0.60)),
+                var(--paper-deep);
+            box-shadow: var(--shadow-depth);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            opacity: 0.46;
+            mix-blend-mode: multiply;
+            filter: saturate(0.82) contrast(0.92);
+        }
+
+        .photo-label {
+            position: absolute;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            padding: 14px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.68);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.84);
+            box-shadow: 0 12px 34px rgba(36, 48, 45, 0.10), var(--shadow-line);
+            color: var(--ink-soft);
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.65;
+        }
+
+        .profile-copy h2 {
+            margin-bottom: 18px;
+        }
+
+        .quote {
+            margin: 30px 0;
+            padding: 26px 28px;
+            border-left: 4px solid var(--sage);
+            border-radius: 0 8px 8px 0;
+            background: linear-gradient(135deg, rgba(223, 234, 222, 0.72), rgba(255, 255, 255, 0.82));
+            box-shadow: 0 12px 38px rgba(36, 48, 45, 0.07), var(--shadow-line);
+            color: var(--ink);
+            font-family: var(--font-serif);
+            font-size: 19px;
+            font-weight: 500;
+            line-height: 1.9;
+        }
+
+        .placeholder {
+            border-style: dashed;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(242, 238, 231, 0.74)),
+                var(--white);
+        }
+
+        .placeholder-label {
+            display: inline-flex;
+            margin-bottom: 14px;
+            padding: 6px 10px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--ink), #3c4e48);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 0.80fr);
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .info-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-top: 1px solid var(--line);
+        }
+
+        .info-list li {
+            display: grid;
+            grid-template-columns: 126px minmax(0, 1fr);
+            gap: 18px;
+            padding: 17px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .info-list span {
+            color: var(--clay-dark);
+            font-weight: 800;
+        }
+
+        .map-box {
+            min-height: 330px;
+            display: grid;
+            place-items: center;
+            padding: 28px;
+            overflow: hidden;
+            border: 1px solid rgba(36, 48, 45, 0.12);
+            border-radius: 8px;
+            background:
+                linear-gradient(135deg, rgba(111, 138, 123, 0.22), rgba(216, 198, 207, 0.38)),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(251, 250, 246, 0.92));
+            box-shadow: var(--shadow-soft), var(--shadow-line);
+            color: var(--ink-soft);
+            text-align: center;
+        }
+
+        .map-box strong {
+            display: block;
+            margin-bottom: 10px;
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .booking-box {
+            position: relative;
+            overflow: hidden;
+            padding: 50px;
+            border-radius: 8px;
+            background:
+                linear-gradient(135deg, rgba(36, 48, 45, 0.98), rgba(52, 70, 64, 0.94)),
+                var(--ink);
+            box-shadow: var(--shadow-depth);
+            color: var(--white);
+        }
+
+        .booking-box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 64px),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 64px);
+            opacity: 0.38;
+        }
+
+        .booking-box > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .booking-box h2,
+        .booking-box .eyebrow {
+            color: var(--white);
+        }
+
+        .booking-box .eyebrow::before {
+            background: linear-gradient(90deg, var(--gold), rgba(199, 164, 98, 0));
+        }
+
+        .booking-box .lead {
+            margin: 16px 0 32px;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .booking-box .button {
+            border-color: rgba(255, 255, 255, 0.82);
+            background: var(--white);
+            color: var(--ink);
+        }
+
+        .booking-box .button.secondary {
+            background: rgba(255, 255, 255, 0.10);
+            color: var(--white);
+        }
+
+        footer {
+            padding: 44px 0;
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.76);
+        }
+
+        footer .wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .footer-brand {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .footer-note {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes revealUp {
+            from {
+                opacity: 0;
+                transform: translateY(36px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatSoft {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes softSheen {
+            from {
+                transform: translateX(-120%);
+            }
+            to {
+                transform: translateX(120%);
+            }
+        }
+
+        @media (max-width: 980px) {
+            :root {
+                --section-space: 82px;
+                --wrap: min(100% - 32px, 1120px);
+            }
+
+            .site-header {
+                top: 50px;
+            }
+
+            .nav {
+                min-height: auto;
+                padding: 16px 0;
+            }
+
+            .brand {
+                max-width: 70%;
+                white-space: normal;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 62px 0 76px;
+            }
+
+            .hero-grid,
+            .grid-2,
+            .grid-3,
+            .profile,
+            .access-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 44px;
+            }
+
+            h2 {
+                font-size: 34px;
+            }
+
+            .hero-visual {
+                min-height: 430px;
+            }
+
+            .hero-note {
+                right: 0;
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .notice {
+                font-size: 12px;
+            }
+
+            .site-header {
+                top: 57px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 29px;
+            }
+
+            h3 {
+                font-size: 19px;
+            }
+
+            .lead {
+                font-size: 16px;
+            }
+
+            .hero-kicker {
+                gap: 8px;
+            }
+
+            .hero-kicker li,
+            .button {
+                width: 100%;
+            }
+
+            .hero-visual {
+                min-height: 380px;
+            }
+
+            .image-stage {
+                inset: 26px 0 0 0;
+            }
+
+            .image-caption {
+                right: 0;
+                padding: 18px;
+            }
+
+            .hero-note {
+                position: relative;
+                top: auto;
+                right: auto;
+                max-width: none;
+                margin-bottom: 16px;
+                animation: none;
+            }
+
+            .tone-strip,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-item,
+            .info-list li {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .price {
+                white-space: normal;
+            }
+
+            .card,
+            .booking-box {
+                padding: 24px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="notice">提案サンプル(ドラフト・未送信) - 既存の公開情報だけをもとにしたレビュー用サンプルです。送信前にYuの確認が必要です。</div>
+
+    <header class="site-header" id="site-header">
+        <div class="nav">
+            <a class="brand" href="#top">{{SALON_NAME}}</a>
+            <nav class="nav-links" aria-label="ページ内ナビゲーション">
+                <a href="#for">こんな方へ</a>
+                <a href="#menu">メニュー</a>
+                <a href="#owner">オーナー</a>
+                <a href="#access">アクセス</a>
+                <a href="#booking">予約</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="hero" data-block="01-first-view" aria-labelledby="hero-title">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <ul class="hero-kicker" aria-label="サロン概要">
+                        <li>{{AREA}}</li>
+                        <li>{{PRICE_RANGE}}</li>
+                        <li>{{BOOKING_ROUTE}}</li>
+                    </ul>
+                    <h1 class="hero-title" id="hero-title">{{SALON_NAME}}</h1>
+                    <p class="lead hero-lead">{{AREA}}で、{{TARGET_CUSTOMER}}に向けた{{ATMOSPHERE}}のプライベートサロン。{{MENU_NAME}}を中心に、初回前に知りたい流れを落ち着いて確認できる予約案内サンプルです。</p>
+                    <div class="cta-row">
+                        <a class="button" href="#booking">{{FIRST_VISIT_ROUTE}}</a>
+                        <a class="button secondary" href="#menu">メニューを見る</a>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-label="サンプル画像枠">
+                    <aside class="hero-note">
+                        <p class="eyebrow">Review Draft</p>
+                        <p class="microcopy">{{SALON_NAME}}らしい静けさと、予約前に見たい情報を1ページにまとめた構成です。</p>
+                        <p class="microcopy">公開済み情報と[要確認]ラベルを分けたドラフトです。</p>
+                    </aside>
+                    <div class="image-stage">
+                        <img src="{{HERO_IMAGE}}" alt="サンプル画像（要差し替え・写真許諾後）">
+                    </div>
+                    <div class="image-caption">
+                        <strong>サンプル画像（要差し替え・写真許諾後）</strong>
+                        <span>{{PHOTO_TONE}}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="for" class="section alt" data-block="02-for">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="eyebrow">02 For</p>
+                    <h2>こんな方へ</h2>
+                    <p class="lead">{{TARGET_CUSTOMER}}が、予約前に雰囲気・メニュー・当日の流れをひと通り確認できる案内です。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card reveal">
+                        <h3>静かな時間を取りたい方</h3>
+                        <p>会話量や過ごし方を相談しながら、無理なく過ごせる場所を探している方へ。</p>
+                    </article>
+                    <article class="card reveal">
+                        <h3>初めての場所を慎重に選びたい方</h3>
+                        <p>メニュー、価格、予約方法、当日の流れを先に見てから検討したい方へ。</p>
+                    </article>
+                    <article class="card reveal">
+                        <h3>自分のペースを大切にしたい方</h3>
+                        <p>強い表現よりも、穏やかな案内と丁寧な対応を重視したい方へ。</p>
+                    </article>
+                </div>
+                <div class="tone-strip reveal" aria-label="トーン設計">
+                    <div class="tone-item">
+                        <b>空間</b>
+                        <span>{{ATMOSPHERE}}</span>
+                    </div>
+                    <div class="tone-item">
+                        <b>写真</b>
+                        <span>{{PHOTO_TONE}}</span>
+                    </div>
+                    <div class="tone-item">
+                        <b>予約</b>
+                        <span>{{BOOKING_ROUTE}}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" data-block="03-reasons">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="eyebrow">03 Reasons</p>
+                    <h2>選ばれる理由</h2>
+                </div>
+                <div class="grid-3">
+                    <article class="card reveal">
+                        <h3>落ち着いて過ごせる空間</h3>
+                        <p>{{ATMOSPHERE}}の空間づくりで、周りを気にせず過ごせる印象を伝えます。</p>
+                    </article>
+                    <article class="card reveal">
+                        <h3>初回前の不安を減らす案内</h3>
+                        <p>予約前に、メニューと当日の流れ、アクセス情報を同じページで確認できます。</p>
+                    </article>
+                    <article class="card reveal">
+                        <h3>{{STRENGTHS}}</h3>
+                        <p>{{SALON_NAME}}の大切にしている雰囲気が、自然に伝わる構成にしています。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="section alt" data-block="04-menu">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="eyebrow">04 Menu</p>
+                    <h2>メニュー</h2>
+                    <p class="lead">初めての方が選びやすいように、入口メニューと通常メニューを分けて掲載します。</p>
+                </div>
+                <div class="menu-list reveal">
+                    <article class="menu-item">
+                        <div>
+                            <h3>{{MENU_NAME}}</h3>
+                            <p class="microcopy">初回の方に向けた、サロンの雰囲気を知りやすい基本メニューです。</p>
+                        </div>
+                        <p class="price">{{FIRST_VISIT_PRICE}}</p>
+                    </article>
+                    <article class="menu-item">
+                        <div>
+                            <h3>{{REGULAR_MENU_NAME}}</h3>
+                            <p class="microcopy">慣れてきた方向けに、ゆっくり過ごせる時間を確保したメニューです。</p>
+                        </div>
+                        <p class="price">{{REGULAR_PRICE}}</p>
+                    </article>
+                    <article class="menu-item">
+                        <div>
+                            <h3>{{SEASONAL_MENU_NAME}}</h3>
+                            <p class="microcopy">季節や気分に合わせて、香りや過ごし方を相談できるメニューです。</p>
+                        </div>
+                        <p class="price">{{SEASONAL_PRICE}}</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" data-block="05-flow">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="eyebrow">05 Flow</p>
+                    <h2>当日の流れ</h2>
+                    <p class="lead">予約から来店後までを短く整理し、初めての方でも迷いにくい見せ方にしています。</p>
+                </div>
+                <div class="steps">
+                    <article class="step reveal">
+                        <h3>予約</h3>
+                        <p class="microcopy">{{BOOKING_ROUTE}}から希望日時をお知らせください。</p>
+                    </article>
+                    <article class="step reveal">
+                        <h3>来店</h3>
+                        <p class="microcopy">{{AREA}}のサロンへ。詳しいアクセスは予約時に確認します。</p>
+                    </article>
+                    <article class="step reveal">
+                        <h3>ヒアリング</h3>
+                        <p class="microcopy">その日の希望、苦手なこと、過ごし方を確認します。</p>
+                    </article>
+                    <article class="step reveal">
+                        <h3>メニュー時間</h3>
+                        <p class="microcopy">無理のない範囲で、ゆっくり過ごせる時間を整えます。</p>
+                    </article>
+                    <article class="step reveal">
+                        <h3>次回案内</h3>
+                        <p class="microcopy">次回予約や自宅での過ごし方は、必要な方にだけご案内します。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="owner" class="section alt" data-block="06-owner">
+            <div class="wrap profile">
+                <figure class="profile-photo reveal">
+                    <img src="{{OWNER_IMAGE}}" alt="{{OWNER_NAME}}のサンプル画像（要差し替え・写真許諾後）">
+                    <figcaption class="photo-label">サンプル画像（要差し替え・写真許諾後）<br>{{PHOTO_TONE}}</figcaption>
+                </figure>
+                <div class="profile-copy reveal">
+                    <p class="eyebrow">06 Owner Profile</p>
+                    <h2>{{OWNER_NAME}}</h2>
+                    <p class="lead">{{OWNER_PROFILE}}</p>
+                    <blockquote class="quote">{{OWNER_WORDS}}</blockquote>
+                    <p class="microcopy">このページでは、オーナーの人柄と予約前の安心感が伝わるように、プロフィールを大きく扱っています。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" data-block="07-voices">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="eyebrow">07 Voices</p>
+                    <h2>お客様の声</h2>
+                    <p class="lead">このブロックは実データと掲載許可がある場合だけ使用します。現在は品質確認用のPLACEHOLDERです。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card placeholder reveal">
+                        <span class="placeholder-label">PLACEHOLDER 01</span>
+                        <p>掲載前に、実際のお客様から許可を得た文章へ差し替えてください。</p>
+                    </article>
+                    <article class="card placeholder reveal">
+                        <span class="placeholder-label">PLACEHOLDER 02</span>
+                        <p>年代、来店目的、本文の公開可否を確認してから掲載します。</p>
+                    </article>
+                    <article class="card placeholder reveal">
+                        <span class="placeholder-label">PLACEHOLDER 03</span>
+                        <p>許可のない文章や想像で作った感想は掲載しません。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="access" class="section alt" data-block="08-access">
+            <div class="wrap access-grid">
+                <div class="reveal">
+                    <p class="eyebrow">08 Access</p>
+                    <h2>アクセス</h2>
+                    <ul class="info-list">
+                        <li><span>地域</span>{{AREA}}</li>
+                        <li><span>最寄り</span>{{STATION_INFO}}</li>
+                        <li><span>駐車場</span>{{PARKING_INFO}}</li>
+                        <li><span>営業時間</span>{{OPEN_HOURS}}</li>
+                        <li><span>予約導線</span>{{BOOKING_ROUTE}}</li>
+                    </ul>
+                </div>
+                <div class="map-box reveal" aria-label="地図プレースホルダー">
+                    <p><strong>MAP PLACEHOLDER</strong>{{AREA}}<br>実運用時は正しい地図情報に差し替え</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="section" data-block="09-final-cta">
+            <div class="wrap">
+                <div class="booking-box reveal">
+                    <p class="eyebrow">09 Booking</p>
+                    <h2>初めての方へ</h2>
+                    <p class="lead">{{FIRST_VISIT_ROUTE}}。予約前に聞いておきたいことがあれば、{{BOOKING_ROUTE}}から短く送っていただけます。</p>
+                    <div class="cta-row">
+                        <a class="button" href="{{BOOKING_URL}}">{{BOOKING_BUTTON_LABEL}}</a>
+                        <a class="button secondary" href="#menu">メニューを見直す</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span class="footer-brand">{{SALON_NAME}}</span>
+            <span class="footer-note">{{YEAR}} proposal draft. No outreach sent.</span>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.getElementById("site-header");
+
+        window.addEventListener("scroll", () => {
+            if (!header) return;
+            header.classList.toggle("is-scrolled", window.scrollY > 80);
+        }, { passive: true });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.14,
+            rootMargin: "0px 0px -70px 0px"
+        });
+
+        document.querySelectorAll(".reveal").forEach((element, index) => {
+            element.style.transitionDelay = `${Math.min(index * 0.045, 0.28)}s`;
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

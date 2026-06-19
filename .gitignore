@@ -62,3 +62,6 @@ docs/*.png
 *.key
 *.pem
 *.token
+
+# Salon LP template sample image assets (~16M; keep template source HTML/JSON/PY/MD, drop sample images)
+templates/salon_editorial_variant/assets/

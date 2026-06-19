@@ -1,0 +1,71 @@
+{
+  "theme": "clean-minimal",
+  "brand": "ビューティーサロンKUMAMOTO",
+  "locality": "熊本・出水",
+  "category_label": "フェイシャル ／ シェアサロン　熊本",
+  "hero_image": "assets/real_kumamoto/img06.jpg",
+  "hero_treatment": "plain",
+  "hero_lines": [
+    "自分のための、",
+    "静かな時間を。"
+  ],
+  "hero_sub": "熊本・出水の複合型シェアサロン。明るく、清潔な空間です。",
+  "cta_label": "WEB予約・お問い合わせ",
+  "intro_kick": "はじめに",
+  "intro": "はじめての方も、ご予約のときに気になることをお聞きいただけます。",
+  "intro_body": "明るく開けた空間で、落ち着いてお過ごしいただけます。",
+  "band_image": "assets/real_kumamoto/img05.jpg",
+  "band_treatment": "plain",
+  "menu_kick": "メニュー",
+  "menu": [
+    {
+      "name": "フェイシャルメニュー",
+      "detail": "（メニュー名・料金は要確認）",
+      "price": null
+    },
+    {
+      "name": "初回メニュー",
+      "detail": "（要確認）",
+      "price": null
+    }
+  ],
+  "flow_kick": "ご来店の流れ",
+  "flow": [
+    {
+      "label": "ご予約",
+      "text": "WEB予約・LINE・Instagram・お電話から、ご希望の日時を。"
+    },
+    {
+      "label": "ご来店",
+      "text": "熊本市中央区出水。ミッドタウン出水D棟です。"
+    },
+    {
+      "label": "カウンセリング",
+      "text": "その日のご希望や、気になるところをうかがいます。"
+    },
+    {
+      "label": "お手入れ",
+      "text": "明るい空間で、ゆっくりお過ごしいただきます。"
+    }
+  ],
+  "story_kick": "このサロンについて",
+  "story": "複数の施術者が集まる、複合型のシェアサロンです。目的に合わせて選びやすい場所をめざしています。",
+  "access": [
+    [
+      "住所",
+      "熊本市中央区出水4丁目14-23 ミッドタウン出水D棟"
+    ],
+    [
+      "ご予約",
+      "WEB予約・LINE・Instagram・お電話"
+    ],
+    [
+      "メニュー詳細",
+      "（要確認・差し替え）"
+    ]
+  ],
+  "res_line": "まずは、ご都合の良い日を。",
+  "res_note": "ご質問だけのお問い合わせでも大丈夫です。",
+  "reservation_url": "https://www.spasalon-fu-kumamoto.com/contact/",
+  "story_image": "assets/real_kumamoto/img01.png"
+}

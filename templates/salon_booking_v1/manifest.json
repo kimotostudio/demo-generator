@@ -1,0 +1,55 @@
+{
+  "template_id": "salon_booking_v1",
+  "purpose": "Fictional and real-review-gated personal salon demo landing pages.",
+  "version": "2026-06-13",
+  "entry_file": "template.html",
+  "required_slots": [
+    "SALON_NAME",
+    "AREA",
+    "MENU_NAME",
+    "ATMOSPHERE",
+    "OWNER_WORDS",
+    "PHOTO_TONE",
+    "BOOKING_ROUTE",
+    "PRICE_RANGE",
+    "TARGET_CUSTOMER",
+    "STRENGTHS",
+    "FIRST_VISIT_ROUTE"
+  ],
+  "additional_slots": [
+    "HERO_IMAGE",
+    "OWNER_IMAGE",
+    "OWNER_NAME",
+    "OWNER_PROFILE",
+    "FIRST_VISIT_PRICE",
+    "REGULAR_MENU_NAME",
+    "REGULAR_PRICE",
+    "SEASONAL_MENU_NAME",
+    "SEASONAL_PRICE",
+    "STATION_INFO",
+    "PARKING_INFO",
+    "OPEN_HOURS",
+    "BOOKING_URL",
+    "BOOKING_BUTTON_LABEL",
+    "YEAR"
+  ],
+  "blocks": [
+    "01-first-view",
+    "02-for",
+    "03-reasons",
+    "04-menu",
+    "05-flow",
+    "06-owner",
+    "07-voices",
+    "08-access",
+    "09-final-cta"
+  ],
+  "guardrail_summary": [
+    "Use only soft, optional wording.",
+    "Do not promise outcomes, performance, or customer acquisition.",
+    "Do not make medical, body-shape, or efficacy assertions.",
+    "Do not criticize the recipient's current site, booking flow, copy, or competitors.",
+    "Use customer voices only when real permissioned data exists; otherwise keep PLACEHOLDER labels."
+  ],
+  "sample_status": "A rendered fictional sample is stored in samples/salon_sample_fictional_20260613/."
+}
